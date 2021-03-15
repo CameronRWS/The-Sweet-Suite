@@ -1,6 +1,14 @@
 const db = require('./db');
 let tableName = "players";
 
+async function login(username, password){
+    const result = await db.query(
+        `SELECT * FROM ${tableName} WHERE username=?`,
+        [username]
+    );
+    return checkLoginResult(result, password);
+}
+
 async function getAll(){
     const result = await db.query(
         `SELECT * FROM ${tableName}`
@@ -61,6 +69,25 @@ async function remove(id){
     return !result ? [] : result;
 }
 
+async function checkLoginResult(result, password) {
+    if(result.length === 0) {
+        return {
+            "isSuccessful" : false,
+            "status" : "Username doesn't exit."
+        }
+    } else if (result[0].password !== password) {
+        return {
+            "isSuccessful" : false,
+            "status" : "Password is not correct."
+        }
+    } else {
+        return {
+            "isSuccessful" : true,
+            "status" : "Success."
+        }
+    }
+}
+
 module.exports = {
-    getAll, get, create, update, remove
+    login, getAll, get, create, update, remove
 }

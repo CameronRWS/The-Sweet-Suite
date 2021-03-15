@@ -1,7 +1,19 @@
+
+
 const express = require('express');
 const router = express.Router();
 const players = require('../services/players');
 let tableName = "players";
+
+//login
+router.post('/login', async function(req, res, next) {
+    try {
+        res.json(await players.login(req.body.username, req.body.password));
+    } catch (err) {
+        console.error(`error while login ${tableName} `, err.message);
+        next(err);
+    }
+});
 
 router.get('/:id', async function(req, res, next) {
     try {
