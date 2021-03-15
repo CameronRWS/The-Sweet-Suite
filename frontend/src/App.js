@@ -1,4 +1,5 @@
 import './App.css';
+import Login from"./pages/Login";
 
 function App() {
   return (
@@ -7,6 +8,7 @@ function App() {
         <p>
           The Sweet Suite
         </p>
+        <Login></Login>
       </header>
     </div>
   );
