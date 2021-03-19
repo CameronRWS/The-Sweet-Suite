@@ -1,16 +1,19 @@
 import React, {useState} from "react";
 import './Login.css';
+import { useHistory } from 'react-router-dom';
 
 const Login = () => {
     const [userId, setUserId] = useState("");
     const [password, setPassword] = useState("");
+    const [status, setStatus] = useState("");
+    const history = useHistory();
 
     const validateForm = () =>{
         return userId.length > 0 && password.length > 0;
     };
 
     const handleSubmit = (event) => {
-        event.preventDefault();
+        event.preventDefault();   
     };
 
     const handleUserChange = (event) =>{
@@ -25,12 +28,27 @@ const Login = () => {
         if (validateForm){
             console.log("ok");
         }
-        setPassword("");
-        setUserId("");
+        const data = {
+            "username" : userId,
+            "password" : password
+        }
+        fetch("http://localhost:8080/api/players/login", {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data),
+        }).then(response => response.json()).then(data => {
+            setStatus(data.status);
+            if (data.isSuccessful){
+                let path = '/gamesuite';
+                history.push(path);
+            }
+        })
     };
 
     return(
-        <div className="Login">
+        <div className="App-header">
             <form onSubmit={handleSubmit}>
                 <div>
                     <label>User Name</label>
