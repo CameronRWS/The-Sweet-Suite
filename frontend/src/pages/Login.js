@@ -1,5 +1,4 @@
 import React, {useState} from "react";
-import './Login.css';
 import { useHistory } from 'react-router-dom';
 
 const Login = () => {
@@ -48,7 +47,7 @@ const Login = () => {
     };
 
     return(
-        <div className="App-header">
+        <div>
             <form onSubmit={handleSubmit}>
                 <div>
                     <label>User Name</label>
