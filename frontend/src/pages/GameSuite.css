@@ -1,0 +1,21 @@
+.GameSuiteHeader{
+    padding: 8px 25px;
+    margin: 5px 10px;
+    border-radius: 5px;
+    border-color: #ED820E;
+    background-color:aquamarine;
+    color:#150531;
+    text-align: center;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size: 20px;
+}
+
+.GameSuiteGames{
+    padding: 8px 25px;
+    margin: 5px 10px;
+    border-radius: 5px;
+    color:#150531;
+    text-align: left;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size: 15px;
+}

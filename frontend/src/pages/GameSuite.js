@@ -1,13 +1,23 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import './Login.css';
+import './GameSuite.css';
+
+function loadCheckers() {
+    console.log("playing checkers");
+}
 
 // code list of props here, find out how to specify props at bottom
 const GameSuite = (props) => {
     return (
-        <div className="App-header">
+        <div>
+        <div className = "GameSuiteHeader">
             <p>Welcome to The Sweet Suite!</p>
-            <li><Link to="/signup">Sign up!</Link></li>
+            <p>These are the games currently available to you</p>
+        </div>
+        <div className = "GameSuiteGames">
+            <h3 onClick = {loadCheckers}>Checkers</h3>
+            <img src = "checkers.jpg" alt = "checkers board" width = "200" height = "200" onClick = {loadCheckers}></img>
+        </div>
         </div>
     )
 }
