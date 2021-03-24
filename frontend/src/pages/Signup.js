@@ -40,32 +40,33 @@ export default class Signup extends React.Component {
     }
 
     let passwordError;
-    if(!this.validatePassword()){
-        passwordError = "Passwords must be between 6 to 20 characters, and contain at least one number, uppercase letter and lowercase letter.";
-    }else{
-        passwordError = "";
+    if (!this.validatePassword()) {
+      passwordError =
+        "Passwords must be between 6 to 20 characters, and contain at least one number, uppercase letter and lowercase letter.";
+    } else {
+      passwordError = "";
     }
 
     let usernameError;
-    if(this.state.username.length < 8){
-        usernameError = "Username must be at least 8 characters long";
-    }else{
-        usernameError = "";
+    if (!this.validateUsername()) {
+      usernameError =
+        "Username must be alphanumberic and between 8 and 20 characters long";
+    } else {
+      usernameError = "";
     }
 
     let displayError;
-    if(this.state.display_name.length < 8){
-        displayError = "Display Name must be at least 8 characters long";
-    }else{
-        displayError = "";
+    if (!this.validateDisplay()) {
+      displayError = "Display Name must be between 1 and 20 characters long";
+    } else {
+      displayError = "";
     }
-
 
     this.setState({
       emailError: emailError,
       passwordError: passwordError,
       usernameError: usernameError,
-      displayError: displayError
+      displayError: displayError,
     });
 
     return (
@@ -89,7 +90,17 @@ export default class Signup extends React.Component {
   validatePassword = () => {
     let passwordReq = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/;
     return this.state.password.match(passwordReq);
-  }
+  };
+
+  validateUsername = () => {
+    let usernameReq = /^[a-zA-Z0-9_]{8,20}$/;
+    return this.state.username.match(usernameReq);
+  };
+
+  validateDisplay = () => {
+    let displayReq = /^[\w\-\s.,]{1,20}$/;
+    return this.state.display_name.match(displayReq);
+  };
 
   handleSubmit = (event) => {
     event.preventDefault();
@@ -98,6 +109,27 @@ export default class Signup extends React.Component {
   handleSignup = (event) => {
     if (this.validateForm()) {
       console.log("ok");
+
+      const data = {
+        username: this.state.username,
+        password: this.state.password,
+        email: this.state.email,
+        display_name: this.state.display_name,
+        total_score: this.state.total_score,
+        spendable_score: this.state.spendable_score,
+      };
+      fetch("http://localhost:8080/api/players/", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          let path = "/login";
+          useHistory().push(path);
+        });
       this.setState({
         username: "",
         password: "",
@@ -107,7 +139,6 @@ export default class Signup extends React.Component {
         spendable_score: 0,
       });
     }
-
   };
 
   handleChange = (event) => {
