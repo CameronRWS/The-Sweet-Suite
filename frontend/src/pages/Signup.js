@@ -150,6 +150,8 @@ export default class Signup extends React.Component {
   render() {
     return (
       <div>
+        <h1>The Sweet Suite</h1>
+        <h2>Sign Up</h2>
         <form onSubmit={this.handleSubmit}>
           <div>
             <input

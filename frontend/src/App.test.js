@@ -10,8 +10,3 @@ it('should take a snapshot', () => {
 
     expect(asFragment(<App />)).toMatchSnapshot()
 });
-
-// it('should be enabled', () => {
-//   const { getByTestId } = render(<Login />);
-//   expect(getByTestId('login-button')).not.toHaveAttribute('disabled');
-// });

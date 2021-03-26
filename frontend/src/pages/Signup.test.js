@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import '@testing-library/react';
 import { act } from 'react-dom/test-utils';
-import Login from './Login';
+import Signup from './Signup';
 
 let container;
 
@@ -16,33 +16,30 @@ afterEach(() => {
     container = null;
 });
 
-it('can render The Suite Sweet on Login', () => {
+it('can render The Sweet Suite on Signup', () => {
     act(() => {
-        ReactDOM.render(<Login/>, container);
+        ReactDOM.render(<Signup/>, container);
     });
 
     const text = container.querySelector('h1');
     expect(text.textContent).toBe('The Sweet Suite');
 });
 
-it('can render Login on Login', () => {
+it('can render Sign Up on Signup', () => {
     act(() => {
-        ReactDOM.render(<Login/>, container);
+        ReactDOM.render(<Signup/>, container);
     });
 
     const text = container.querySelector('h2');
-    expect(text.textContent).toBe('Login');
-})
-
-it('can click button', () => {
-    act(() => {
-        ReactDOM.render(<Login/>, container);
-    });
-    
-    const button = container.querySelector('button');
-    expect(button.textContent).toBe("Login");
-    act(() => {
-        button.dispatchEvent(new MouseEvent('click'), {userId: "user", password: "pass" })
-    });
+    expect(text.textContent).toBe('Sign Up');
 });
 
+it('can render update username field', () => {
+    act(() => {
+        ReactDOM.render(<Signup/>, container);
+    });
+
+    const username = container.querySelector('input');
+    expect(username.textContent).toBe('');
+
+});
