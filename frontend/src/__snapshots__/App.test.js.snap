@@ -4,6 +4,12 @@ exports[`should take a snapshot 1`] = `
 <DocumentFragment>
   <div>
     <div>
+      <h1>
+        The Sweet Suite
+      </h1>
+      <h2>
+        Login
+      </h2>
       <form>
         <div>
           <label>
