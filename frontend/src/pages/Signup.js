@@ -1,5 +1,5 @@
 import React from "react";
-import { useHistory } from "react-router-dom";
+import { useHistory, Redirect } from "react-router-dom";
 
 function BackButton() {
   let history = useHistory();
@@ -28,6 +28,7 @@ export default class Signup extends React.Component {
       passwordError: "",
       emailError: "",
       displayError: "",
+      toLogin: false,
     };
   }
 
@@ -70,8 +71,8 @@ export default class Signup extends React.Component {
     });
 
     return (
-      this.state.username.length >= 8 &&
-      this.state.display_name.length >= 8 &&
+      this.validateUsername() &&
+      this.validateDisplay() &&
       this.validatePassword() &&
       this.validateEmail()
     );
@@ -124,11 +125,9 @@ export default class Signup extends React.Component {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(data),
-      })
-        .then((response) => response.json())
-        .then((data) => {
-          let path = "/login";
-          useHistory().push(path);
+      }).then((data) => {
+            console.log(data)
+          this.setState({ toLogin: true });
         });
       this.setState({
         username: "",
@@ -148,6 +147,10 @@ export default class Signup extends React.Component {
   };
 
   render() {
+    if (this.state.toLogin) {
+      return <Redirect to="/"></Redirect>;
+    }
+
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
