@@ -1,5 +1,4 @@
-
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Login from "./pages/Login";
 import GameSuite from "./pages/GameSuite";
 import Checkers from "./pages/Checkers";

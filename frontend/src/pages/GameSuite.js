@@ -14,6 +14,7 @@ const GameSuite = (props) => {
     
     return (
         <div>
+            <a className = "Settings" onClick = {loadSettings}>Settings</a>
         <div className = "GameSuiteHeader">
             <p>Welcome to The Sweet Suite!</p>
             <p>These are the games currently available to you</p>
