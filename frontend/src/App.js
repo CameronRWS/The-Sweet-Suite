@@ -1,6 +1,7 @@
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Login from "./pages/Login";
 import GameSuite from "./pages/GameSuite";
+import Checkers from "./pages/Checkers";
 import Signup from "./pages/Signup";
 import Settings from "./pages/Settings";
 
@@ -15,12 +16,15 @@ function App() {
           <Route path="/gamesuite">
             <GameSuite></GameSuite>
           </Route>
+          <Route path="/checkers">
+            <Checkers></Checkers>
+          </Route>
           <Route path="/signup">
             <Signup></Signup>
           </Route>
           <Route path="/settings">
             <Settings></Settings>
-          </Route>
+            </Route>
         </Switch>
       </BrowserRouter>
     </div>

@@ -3,19 +3,20 @@ import { Link, useHistory } from "react-router-dom";
 import './GameSuite.css';
 import checkers from './images/Checkers.jpg';
 
-function loadCheckers() {
-    console.log("playing checkers");
-}
-
 // code list of props here, find out how to specify props at bottom
 const GameSuite = (props) => {
     const history = useHistory();
 
+    const loadCheckers = () => {
+        let path = "/checkers";
+        history.push(path);
+    };
+
     const loadSettings = () => {
         let path = "/settings";
         history.push(path);
-    }
-
+    };
+    
     return (
         <div>
             <a className = "Settings" onClick = {loadSettings}>Settings</a>
