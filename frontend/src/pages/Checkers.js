@@ -1,20 +1,26 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import './GameSuite.css';
-
-function loadCheckers() {
-    console.log("playing checkers");
-}
 
 // code list of props here, find out how to specify props at bottom
 const Checkers = (props) => {
+    const history = useHistory();
+
+    const loadHome = () => {
+        let path = "/gamesuite";
+        history.push(path);
+    };
+
     return (
         <div>
+        <div className = "BackButton">
+            <a onClick = {loadHome} class="previous">&laquo; Back</a>
+        </div>
         <div className = "GameSuiteHeader">
             <p>Checkers</p>
         </div>
         <div className = "Checkers">
-            <h3 onClick = {loadCheckers}>This is an undercover checkers board</h3>
+            <h3 >This is a checkers board. Have fun playing!</h3>
         </div>
             <div className="grid-container">
                 <div className="whiteSquare">0</div>
