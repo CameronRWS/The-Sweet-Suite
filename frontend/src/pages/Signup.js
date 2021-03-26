@@ -34,14 +34,19 @@ export default class Signup extends React.Component {
 
   validateForm = () => {
     let emailError;
-    if (!this.validateEmail()) {
+    let Emailvalidation = this.validateEmail();
+    let uservalidation = this.validateUsername();
+    let passwordvalidation = this.validatePassword();
+    let Displayvalidation = this.validateDisplay();
+    this.checkUsername();
+    if (!Emailvalidation) {
       emailError = "Invalid Email";
     } else {
       emailError = "";
     }
 
     let passwordError;
-    if (!this.validatePassword()) {
+    if (!passwordvalidation) {
       passwordError =
         "Passwords must be between 6 to 20 characters, and contain at least one number, uppercase letter and lowercase letter.";
     } else {
@@ -49,7 +54,7 @@ export default class Signup extends React.Component {
     }
 
     let usernameError;
-    if (!this.validateUsername()) {
+    if (!uservalidation) {
       usernameError =
         "Username must be alphanumberic and between 8 and 20 characters long";
     } else {
@@ -57,7 +62,7 @@ export default class Signup extends React.Component {
     }
 
     let displayError;
-    if (!this.validateDisplay()) {
+    if (!this.validateDisplay) {
       displayError = "Display Name must be between 1 and 20 characters long";
     } else {
       displayError = "";
@@ -71,10 +76,10 @@ export default class Signup extends React.Component {
     });
 
     return (
-      this.validateUsername() &&
-      this.validateDisplay() &&
-      this.validatePassword() &&
-      this.validateEmail()
+      Emailvalidation &&
+      uservalidation &&
+      passwordvalidation &&
+      Displayvalidation
     );
   };
 
@@ -126,9 +131,9 @@ export default class Signup extends React.Component {
         },
         body: JSON.stringify(data),
       }).then((data) => {
-            console.log(data)
-          this.setState({ toLogin: true });
-        });
+        console.log(data);
+        this.setState({ toLogin: true });
+      });
       this.setState({
         username: "",
         password: "",
