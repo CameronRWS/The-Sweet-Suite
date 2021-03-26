@@ -13,8 +13,8 @@ const Settings = (props) => {
 
     return (
         <div>
+            <a className = "BackButton" onClick = {loadHome}>Back</a>
         <div className = "GameSuiteHeader">
-            <a className = "BackButton" onClick = {loadHome}>&laquo; Back</a>
             <p>Settings</p>
         </div>
         </div>

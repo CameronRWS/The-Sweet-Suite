@@ -11,6 +11,11 @@ const GameSuite = (props) => {
         let path = "/checkers";
         history.push(path);
     };
+
+    const loadSettings = () => {
+        let path = "/settings";
+        history.push(path);
+    };
     
     return (
         <div>

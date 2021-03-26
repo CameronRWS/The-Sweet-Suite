@@ -13,7 +13,7 @@ const Checkers = (props) => {
 
     return (
         <div>
-            <a onClick = {loadHome} className ="BackButton">&laquo; Back</a>
+            <a onClick = {loadHome} className ="BackButton">Back</a>
         <div className = "GameSuiteHeader">
             <p>Checkers</p>
         </div>
