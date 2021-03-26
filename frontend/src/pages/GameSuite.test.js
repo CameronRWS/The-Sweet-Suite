@@ -16,6 +16,15 @@ afterEach(() => {
     container = null;
 });
 
+it('contains a settings option', () => {
+    act(() => {
+        ReactDOM.render(<GameSuite/>, container);
+    });
+
+    const settings = container.querySelector('a');
+    expect(settings.textContent).toBe('Settings');
+});
+
 it('contains a checkers game', () => {
     act(() => {
         ReactDOM.render(<GameSuite/>, container);
