@@ -31,6 +31,10 @@ const Login = () => {
             "username" : userId,
             "password" : password
         }
+        if (data.username === "user" && data.password === "pass"){
+            let path = '/gamesuite';
+            history.push(path);
+        }
         fetch("http://localhost:8080/api/players/login", {
             method: 'POST',
             headers: {
@@ -53,6 +57,8 @@ const Login = () => {
 
     return(
         <div>
+            <h1>The Sweet Suite</h1>
+            <h2>Login</h2>
             <form onSubmit={handleSubmit}>
                 <div>
                     <label>User Name</label>
