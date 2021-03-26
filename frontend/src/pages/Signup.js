@@ -167,6 +167,8 @@ export default class Signup extends React.Component {
 
     return (
       <div>
+        <h1>The Sweet Suite</h1>
+        <h2>Sign Up</h2>
         <form onSubmit={this.handleSubmit}>
           <div>
             <input

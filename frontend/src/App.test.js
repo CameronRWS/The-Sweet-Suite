@@ -1,8 +1,12 @@
-import { render, screen } from '@testing-library/react';
-import App from './App';
+import React from 'react'
+import { render, cleanup } from '@testing-library/react'
+import App from './App'
+import Login from './pages/Login'
 
-test('example test', () => {
-  render(<App />);
-  const paraElement = screen.getByText(/The Sweet Suite/i);
-  expect(paraElement).toBeInTheDocument();
+afterEach(cleanup)
+ 
+it('should take a snapshot', () => {
+    const { asFragment } = render(<App />)
+
+    expect(asFragment(<App />)).toMatchSnapshot()
 });
