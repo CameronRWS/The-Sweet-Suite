@@ -1,0 +1,10 @@
+-Testing images
+https://medium.com/@drake_beth/how-to-test-images-in-react-a70053b1634a
+
+-Testing with different queries
+https://timdeschryver.dev/blog/making-sure-youre-using-the-correct-query
+
+-React checkers
+https://codepen.io/Roverok/pen/XVWLaB
+
+https://youtu.be/WLkYEWznD4w
