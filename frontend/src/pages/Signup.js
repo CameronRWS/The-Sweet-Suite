@@ -38,7 +38,7 @@ export default class Signup extends React.Component {
     let uservalidation = this.validateUsername();
     let passwordvalidation = this.validatePassword();
     let Displayvalidation = this.validateDisplay();
-    this.checkUsername();
+    
     if (!Emailvalidation) {
       emailError = "Invalid Email";
     } else {
@@ -132,7 +132,7 @@ export default class Signup extends React.Component {
         body: JSON.stringify(data),
       }).then((data) => {
         console.log(data);
-        this.setState({ toLogin: true });
+        this.checkUser(data.status);
       });
       this.setState({
         username: "",
@@ -142,6 +142,15 @@ export default class Signup extends React.Component {
         total_score: 0,
         spendable_score: 0,
       });
+    }
+  };
+
+  checkUser = (status) => {
+    if (status == 500){
+      this.setState({usernameError: "User already exists"})
+    }
+    else {
+      this.setState({ toLogin: true });
     }
   };
 
