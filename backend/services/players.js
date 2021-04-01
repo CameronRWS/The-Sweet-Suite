@@ -1,4 +1,5 @@
 const db = require('./db');
+const bcrypt = require('bcrypt');
 let tableName = "players";
 
 async function login(username, password){
@@ -33,6 +34,7 @@ async function getByUsername(username){
 }
 
 async function create(player) {
+    player.password = await bcrypt.hash(player.password, 10);
     const result = await db.query(
         `INSERT INTO ${tableName} 
         (username, password, email, display_name, total_score, spendable_score, created_on) 
@@ -52,6 +54,7 @@ async function create(player) {
 }
 
 async function update(id, player){
+    player.password = await bcrypt.hash(player.password, 10);
     const result = await db.query(
         `UPDATE ${tableName} 
         SET username=?, password=?, email=?, display_name=?, total_score=?, spendable_score=? 
@@ -83,15 +86,18 @@ async function checkLoginResult(result, password) {
             "isSuccessful" : false,
             "status" : "Username doesn't exit."
         }
-    } else if (result[0].password !== password) {
-        return {
-            "isSuccessful" : false,
-            "status" : "Password is not correct."
-        }
     } else {
-        return {
-            "isSuccessful" : true,
-            "status" : "Success."
+        const isMatch = await bcrypt.compare(password, result[0].password);
+        if (!isMatch) {
+            return {
+                "isSuccessful" : false,
+                "status" : "Password is not correct."
+            }
+        } else {
+            return {
+                "isSuccessful" : true,
+                "status" : "Success."
+            }
         }
     }
 }

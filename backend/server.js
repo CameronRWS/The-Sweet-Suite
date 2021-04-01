@@ -1,4 +1,5 @@
 const playersRouter = require('./routes/players');
+const bcryptRouter = require('./routes/bcrypt');
 const port = process.env.PORT || 8080;
 const express = require('express');
 
@@ -16,6 +17,7 @@ function createServer() {
     })
     
     app.use('/api/players', playersRouter);
+    app.use('/api/bcrypt', bcryptRouter);
     
     app.use((err, req, res, next) => {
         const statusCode = err.statusCode || 500;
