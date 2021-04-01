@@ -1,7 +1,6 @@
 const createServer = require("../server")
 const supertest = require("supertest");
 const players = require('../services/players');
-const bcrypt = require('bcrypt');
 
 const app = createServer();
 
@@ -17,7 +16,7 @@ test("GET /api/players", async () => {
 test("GET /api/players/:id", async () => {
     const playerCam = { id: 1,
         username: 'Cameron48',
-        password: '$2b$10$f9cWgqxHjS/SwWv4XIAtb.WVgFBNsDDctmZCwJEaGWOTA.G7YoNpi',
+        password: 'myPassword',
         email: 'csmith48@iastate.edu',
         display_name: 'Cameron S.',
         total_score: 0,
@@ -53,14 +52,14 @@ test("POST /api/players", async () => {
 		.expect(200)
 		.then(async (response) => {
 			expect(response.body.username).toBe(testPlayer.username);
-            expect((await bcrypt.compare(testPlayer.password, response.body.password)).toBeTruthy());
+            expect(response.body.password).toBe(testPlayer.password);
             expect(response.body.email).toBe(testPlayer.email);
             expect(response.body.display_name).toBe(testPlayer.display_name);
             expect(typeof response.body.total_score).toBe('number');
             expect(typeof response.body.spendable_score).toBe('number');
             const playerData = await players.getByUsername(testPlayer.username);
             expect(playerData.username).toBe(testPlayer.username);
-            expect((await bcrypt.compare(testPlayer.password, playerData.password)).toBeTruthy());
+            expect(playerData.password).toBe(testPlayer.password);
             expect(playerData.email).toBe(testPlayer.email);
             expect(playerData.display_name).toBe(testPlayer.display_name);
             expect(typeof playerData.total_score).toBe('number');
@@ -115,14 +114,14 @@ test("PUT /api/players", async () => {
 		.expect(200)
 		.then(async (response) => {
 			expect(response.body.username).toBe(newPlayerCam.username);
-            expect((await bcrypt.compare(newPlayerCam.password, response.body.password)).toBeTruthy());
+            expect(response.body.password).toBe(newPlayerCam.password);
             expect(response.body.email).toBe(newPlayerCam.email);
             expect(response.body.display_name).toBe(newPlayerCam.display_name);
             expect(typeof response.body.total_score).toBe('number');
             expect(typeof response.body.spendable_score).toBe('number');
             const playerData = await players.getByUsername(newPlayerCam.username);
             expect(playerData.username).toBe(newPlayerCam.username);
-            expect((await bcrypt.compare(newPlayerCam.password, playerData.password)).toBeTruthy());
+            expect(playerData.password).toBe(newPlayerCam.password);
             expect(playerData.email).toBe(newPlayerCam.email);
             expect(playerData.display_name).toBe(newPlayerCam.display_name);
             expect(typeof playerData.total_score).toBe('number');
