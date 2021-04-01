@@ -1,6 +1,19 @@
-input{
+/* input{
     padding: 8px 25px;
     margin: 5px 10px;
     border-radius: 5px;
     border-color: #ED820E;
-}
+}; */
+
+.logindiv{
+    background-color: #203354;
+    font-size: 20px;
+    color: #7C6E7F;
+    position: fixed;
+    bottom: 0;
+    top: 0;
+    right: 0;
+    left: 0;
+    margin: 25px;
+    border-radius: 30px;
+};

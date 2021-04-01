@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import { useHistory } from 'react-router-dom';
+import './Login.css'
 
 const Login = () => {
     const [userId, setUserId] = useState("");
@@ -56,11 +57,11 @@ const Login = () => {
     }
 
     return(
-        <div>
+        <div className="logindiv">
             <h1>The Sweet Suite</h1>
             <h2>Login</h2>
             <form onSubmit={handleSubmit}>
-                <div>
+                <div >
                     <label>User Name</label>
                     <input type="text" data-test="user" value={userId} onChange={handleUserChange}></input>
                 </div>
