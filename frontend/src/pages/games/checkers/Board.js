@@ -1,40 +1,49 @@
 import React from "react";
-import '../../GameSuite.css';
+import "../../GameSuite.css";
 
 function Square(props) {
+  const squareClass = props["squareClass"];
+  const onClick = props["onClick"];
+  const id = props["id"];
 
-    const squareClass = props['squareClass'];
-    const onClick = props['onClick'];
-    const id = props['id'];
-
-    return(
-        <button className={squareClass} onClick={onClick} id={id}>{id}</button>
-    );
+  return (
+    <button className={squareClass} onClick={onClick} id={id}>
+      {id}
+    </button>
+  );
 }
 
 // code list of props here, find out how to specify props at bottom
 const Board = (props) => {
-    const array1 = [ 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
-    const array2 = ['8','7','6','5','4','3','2','1'];
-    let ids = array2.map(row => array1.map(col=> col.concat(row)));
+  const array1 = ["a", "b", "c", "d", "e", "f", "g", "h"];
+  const array2 = ["8", "7", "6", "5", "4", "3", "2", "1"];
+  let ids = array2.map((row) => array1.map((col) => col.concat(row)));
 
-    let board = [];
-    for (var i = 0; i < 8; i++) {
-        board[i] = new Array(8).fill();
-        for (var j = 0; j < 8; j++) {
-            const col = array1.indexOf(ids[i][j].charAt(0));
-            const row = array2.indexOf(ids[i][j].charAt(1));
+  let board = ids.map((row) =>
+    row.map((id) => {
+      const col = array1.indexOf(id.charAt(0));
+      const row = array2.indexOf(id.charAt(1));
 
-            const colorClass = ((col%2===0 &&row%2===0)||(col%2===1 &&row % 2===1))? "whiteSquare": "blackSquare";
+      const colorClass =
+        (col % 2 === 0 && row % 2 === 0) || (col % 2 === 1 && row % 2 === 1)
+          ? "whiteSquare"
+          : "blackSquare";
 
-            board[i][j] = (<Square squareClass={colorClass} onClick={(id) => console.log(id)} id={ids[i][j]}>{ids[i][j]}</Square>);
-        }
-      }
+      return (
+        <Square
+          squareClass={colorClass}
+          onClick={(id) => console.log(id)}
+          id={id}
+        >
+          {id}
+        </Square>
+      );
+    })
+  );
 
-    return (
-
-            <div className="grid-container">
-                {/* <div className="whiteSquare" id = "A8">a8</div>
+  return (
+    <div className="grid-container">
+      {/* <div className="whiteSquare" id = "A8">a8</div>
                 <div className="blackSquare" id = "B8">b8</div>
                 <div className="whiteSquare" id = "C8">c8</div>
                 <div className="blackSquare" id = "D8">d8</div>
@@ -106,10 +115,9 @@ const Board = (props) => {
                 <div className="blackSquare" id = "G1">g1</div>
                 <div className="whiteSquare" id = "H1">h1</div> */}
 
-                {board}
-
-            </div>
-    )
-}
+      {board}
+    </div>
+  );
+};
 
 export default Board;
