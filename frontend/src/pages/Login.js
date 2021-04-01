@@ -12,7 +12,7 @@ const Login = () => {
     };
 
     const handleSubmit = (event) => {
-        event.preventDefault();
+        event.preventDefault();   
     };
 
     const handleUserChange = (event) =>{
@@ -46,17 +46,12 @@ const Login = () => {
         })
     };
 
-    const goToSignup = () =>{
-        let path = "/signup"
-        history.push(path);
-    }
-
     return(
         <div>
             <form onSubmit={handleSubmit}>
                 <div>
                     <label>User Name</label>
-                    <input type="text" data-test="user" value={userId} onChange={handleUserChange}></input>
+                    <input type="text" data-test="user" value={userId} onChange={handleUserChange}></input> 
                 </div>
                 <div>
                     <label>Password</label>
@@ -64,8 +59,6 @@ const Login = () => {
                 </div>
                 <button type="submit" onClick={handleLogin}>Login</button>
             </form>
-
-            <button onClick={goToSignup}>Signup</button>
         </div>
     );
 }
