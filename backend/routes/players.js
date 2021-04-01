@@ -44,8 +44,6 @@ router.get('/', async function(req, res, next) {
 
 router.post('/', async function(req, res, next) {
     try {
-        console.log("recieved: ");
-        console.log(req.body);
         res.json(await players.create(req.body));
     } catch (err) {
         console.error(`error while creating ${tableName} `, err.message);

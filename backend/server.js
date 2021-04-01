@@ -1,5 +1,5 @@
 const playersRouter = require('./routes/players');
-const port = process.env.PORT || 8080;
+const bcryptRouter = require('./routes/bcrypt');
 const express = require('express');
 
 function createServer() {
@@ -16,16 +16,13 @@ function createServer() {
     })
     
     app.use('/api/players', playersRouter);
+    app.use('/api/bcrypt', bcryptRouter);
     
     app.use((err, req, res, next) => {
         const statusCode = err.statusCode || 500;
         console.error(err.message, err.stack);
         res.status(statusCode).json({'message': err.message});
         return;
-    });
-
-    app.listen(port, () => {
-        console.log(`The Sweet Suite app listening at http://localhost:${port}`)
     });
 	return app
 }
