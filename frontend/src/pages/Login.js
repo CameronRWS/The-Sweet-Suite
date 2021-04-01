@@ -57,11 +57,11 @@ const Login = () => {
     }
 
     return(
-        <div className="logindiv">
-            <h1>The Sweet Suite</h1>
-            <h2>Login</h2>
-            <form onSubmit={handleSubmit}>
-                <div >
+        <div className="login-div">
+            <h1 className="login-text">The Sweet Suite</h1>
+            <h2 className="login-text">Login</h2>
+            <form className="login-form" onSubmit={handleSubmit}>
+                <div>
                     <label>User Name</label>
                     <input type="text" data-test="user" value={userId} onChange={handleUserChange}></input>
                 </div>
@@ -71,8 +71,10 @@ const Login = () => {
                 </div>
                 <button type="submit" onClick={handleLogin}>Login</button>
             </form>
-
-            <button onClick={goToSignup}>Signup</button>
+            <div className="signup-div">
+                <button onClick={goToSignup}>Signup</button>
+            </div>
+            
         </div>
     );
 }

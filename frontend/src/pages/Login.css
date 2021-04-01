@@ -3,9 +3,9 @@
     margin: 5px 10px;
     border-radius: 5px;
     border-color: #ED820E;
-}; */
+} */
 
-.logindiv{
+.login-div{
     background-color: #203354;
     font-size: 20px;
     color: #7C6E7F;
@@ -16,4 +16,17 @@
     left: 0;
     margin: 25px;
     border-radius: 30px;
+}
+
+.login-text{
+    text-align: center;
+}
+
+.login-form{
+    text-align: center;
+}
+
+.signup-div{
+    text-align: center;
 };
+
