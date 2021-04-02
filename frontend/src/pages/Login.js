@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import { useHistory } from 'react-router-dom';
+import { useHistory, BrowserRouter, Link } from 'react-router-dom';
 import './Login.css'
 import backdrop2 from './images/backdrop2.jpg';
 
@@ -76,7 +76,8 @@ const Login = () => {
                     <button type="submit" onClick={handleLogin}>Login</button>
                 </form>
                 <div className="signup-div">
-                    <button onClick={goToSignup}>Signup</button>
+                    <p className="signup-text">Don't have an account?</p>
+                    <Link className="signup-link" to="/signup">Sign Up!</Link>
                 </div>
             </div>
         </div>

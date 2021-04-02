@@ -2,7 +2,6 @@ input{
     padding: 8px 10px;
     margin: 5px 10px;
     border-radius: 11px;
-    /* border-color: #FF7034; */
     border: none;
 }
 
@@ -32,6 +31,13 @@ button{
     font-family: Arial;
     font-size: 15px;
     letter-spacing: 1px;
+    transition-duration: .3s;
+    outline: none;
+}
+
+button:hover{
+    background-color: #fcb989;
+    color: #FF7034;
 }
 
 .login-div{
@@ -72,7 +78,7 @@ button{
     font-family: fantasy;
     letter-spacing: 20px;
     word-spacing: 10px;
-    line-height: 70px;
+    line-height: 50px;
 }
 
 .title-span{
@@ -115,11 +121,6 @@ button{
     position: relative;
 }
 
-/* .form-div{
-    width: 400px;
-
-} */
-
 .image{
     display: block;
     width: 100%;
@@ -128,9 +129,27 @@ button{
     opacity: 1;
 }
 
+.signup-text{
+    text-align: center;
+    font-size: 20px;
+    font-family: "Lucida Console";
+    letter-spacing: 2px;
+    color: #F3FAFF;
+    margin: 15px 0;
+}
+
+.signup-link{
+    text-align: center;
+    font-size: 20px;
+    font-family: "Lucida Console";
+    letter-spacing: 2px;
+    color: #FF7034;
+    margin: 15px 0;
+}
+
 .signup-div{
     text-align: center;
     position: relative;
-    margin: 10px 0;
+    margin: 110px 0;
 };
 
