@@ -1,19 +1,166 @@
-/* input{
-    padding: 8px 25px;
+input{
+    padding: 8px 10px;
     margin: 5px 10px;
-    border-radius: 5px;
-    border-color: #ED820E;
-}; */
+    border-radius: 11px;
+    border: none;
+}
 
-.logindiv{
-    background-color: #203354;
+input[type="text"], input[type="password"]{
     font-size: 20px;
-    color: #7C6E7F;
-    position: fixed;
+    box-shadow:0 0 15px 4px rgba(238, 235, 231, 0.06); 
+}
+
+input[type="text"], input[type="password"], textarea, select { 
+    outline: none;
+}
+
+label{
+    font-family: "Lucida Console";
+    letter-spacing: 1px;
+    color: #F3FAFF;
+}
+
+button{
+    padding: 13px;
+    border: none;
+    border-radius: 11px;
+    color:#FF7034;
+    background-color: antiquewhite;
+    width: auto;
+    font-weight: 600;
+    font-family: Arial;
+    font-size: 15px;
+    letter-spacing: 1px;
+    transition-duration: .3s;
+    outline: none;
+}
+
+button:hover{
+    background-color: #fcb989;
+    color: #FF7034;
+}
+
+.login-div{
+    background-color: #203354;
+    font-size: 10px;
+    color: #F3FAFF;
+    position: absolute;
     bottom: 0;
     top: 0;
     right: 0;
     left: 0;
     margin: 25px;
     border-radius: 30px;
+}
+
+.login-div:hover .overlay {
+    opacity: .8;
+  }
+
+.overlay{
+    position: absolute;
+    bottom: 0;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 1;
+    transition: .5s ease;
+    border-radius: 30px;
+    background-color: #203354;;
+}
+
+.login-title{
+    text-align: center;
+    height: 8%;
+    font-size: 60px;
+    font-family: fantasy;
+    letter-spacing: 20px;
+    word-spacing: 10px;
+    line-height: 50px;
+}
+
+.title-span{
+    text-align: center;
+    height: 30%;
+    font-size: 70px;
+    font-family: fantasy;
+    letter-spacing: 20px;
+    word-spacing: 10px;
+    line-height: 70px;
+    color: #FF7034;
+}
+
+.title-img{
+    text-align: center;
+    height: 30%;
+    font-size: 50px;
+}
+
+.login{
+    text-align: center;
+    font-size: 40px;
+    font-family: "Lucida Console";
+    letter-spacing: 3px;
+    color: #F3FAFF;
+    margin: 15px 0;
+}
+
+.user-div{
+    margin: 5px 0;
+}
+
+.pass-div{
+    margin: 5px 0;
+    height: 55px;
+}
+
+.login-form{
+    text-align: center;
+    position: relative;
+}
+
+.image{
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-radius: 30px;
+    opacity: 1;
+}
+
+.game-bot{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 10%;
+}
+
+.game-bot:hover{
+    opacity:1;
+}
+
+.signup-text{
+    text-align: center;
+    font-size: 20px;
+    font-family: "Lucida Console";
+    letter-spacing: 2px;
+    color: #F3FAFF;
+    margin: 15px 0;
+}
+
+.signup-link{
+    text-align: center;
+    font-size: 20px;
+    font-family: "Lucida Console";
+    letter-spacing: 2px;
+    color: #FF7034;
+    margin: 15px 0;
+}
+
+.signup-div{
+    text-align: center;
+    position: relative;
+    margin: 90px 0;
 };
+
