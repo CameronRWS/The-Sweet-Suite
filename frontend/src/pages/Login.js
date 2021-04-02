@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import { useHistory, BrowserRouter, Link } from 'react-router-dom';
 import './Login.css'
 import backdrop2 from './images/backdrop2.jpg';
+import GameBot from './images/GameBot.png';
 
 const Login = () => {
     const [userId, setUserId] = useState("");
@@ -65,6 +66,7 @@ const Login = () => {
             <img src={backdrop2} className="image"></img>
             <div className="overlay">
                 <h1 className="login-title">The <span className="title-span">Sweet</span> Suite</h1>
+                <img src={GameBot} className="game-bot"></img>
                 <h2 className="login">Login</h2>
                 <form className="login-form" onSubmit={handleSubmit}>
                     <div className="user-div">
