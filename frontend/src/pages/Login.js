@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import { useHistory } from 'react-router-dom';
 import './Login.css'
+import backdrop2 from './images/backdrop2.jpg';
 
 const Login = () => {
     const [userId, setUserId] = useState("");
@@ -58,23 +59,25 @@ const Login = () => {
 
     return(
         <div className="login-div">
-            <h1 className="login-text">The Sweet Suite</h1>
-            <h2 className="login-text">Login</h2>
-            <form className="login-form" onSubmit={handleSubmit}>
-                <div>
-                    <label>User Name</label>
-                    <input type="text" data-test="user" value={userId} onChange={handleUserChange}></input>
+            <img src={backdrop2} className="image"></img>
+            <div className="overlay">
+                <h1 className="login-title">The Sweet Suite</h1>
+                <h2 className="login">Login</h2>
+                <form className="login-form" onSubmit={handleSubmit}>
+                    <div>
+                        <label>User Name</label>
+                        <input type="text" data-test="user" value={userId} onChange={handleUserChange}></input>
+                    </div>
+                    <div>
+                        <label>Password</label>
+                        <input type="password" data-test="pass" value={password} onChange={handlePassChange}></input>
+                    </div>
+                    <button type="submit" onClick={handleLogin}>Login</button>
+                </form>
+                <div className="signup-div">
+                    <button onClick={goToSignup}>Signup</button>
                 </div>
-                <div>
-                    <label>Password</label>
-                    <input type="password" data-test="pass" value={password} onChange={handlePassChange}></input>
-                </div>
-                <button type="submit" onClick={handleLogin}>Login</button>
-            </form>
-            <div className="signup-div">
-                <button onClick={goToSignup}>Signup</button>
             </div>
-            
         </div>
     );
 }
