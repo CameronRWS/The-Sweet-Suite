@@ -64,14 +64,13 @@ const Login = () => {
         <div className="login-div">
             <img src={backdrop2} className="image"></img>
             <div className="overlay">
-                <h1 className="login-title">The Sweet Suite</h1>
+                <h1 className="login-title">The <span className="title-span">Sweet</span> Suite</h1>
                 <h2 className="login">Login</h2>
                 <form className="login-form" onSubmit={handleSubmit}>
                     <div>
                         <label>User Name</label>
                         <input type="text" data-test="user" value={userId} onChange={handleUserChange}></input>
-                    </div>
-                    <div>
+                    
                         <label>Password</label>
                         <input type="password" data-test="pass" value={password} onChange={handlePassChange}></input>
                     </div>
