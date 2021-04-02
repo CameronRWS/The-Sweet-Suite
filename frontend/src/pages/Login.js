@@ -67,12 +67,11 @@ const Login = () => {
                 <h1 className="login-title">The <span className="title-span">Sweet</span> Suite</h1>
                 <h2 className="login">Login</h2>
                 <form className="login-form" onSubmit={handleSubmit}>
-                    <div>
-                        <label>User Name</label>
-                        <input type="text" data-test="user" value={userId} onChange={handleUserChange}></input>
-                    
-                        <label>Password</label>
-                        <input type="password" data-test="pass" value={password} onChange={handlePassChange}></input>
+                    <div className="user-div">
+                        <input type="text" data-test="user" placeholder="username" value={userId} onChange={handleUserChange}></input>
+                    </div>
+                    <div className="pass-div">
+                        <input type="password" data-test="pass" placeholder="password" value={password} onChange={handlePassChange}></input>
                     </div>
                     <button type="submit" onClick={handleLogin}>Login</button>
                 </form>

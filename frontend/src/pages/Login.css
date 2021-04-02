@@ -1,22 +1,37 @@
 input{
     padding: 8px 10px;
     margin: 5px 10px;
-    border-radius: 5px;
-    border-color: #FF7034;
+    border-radius: 11px;
+    /* border-color: #FF7034; */
+    border: none;
 }
 
-input[type="text"]{
-    font-size: 20px; 
+input[type="text"], input[type="password"]{
+    font-size: 20px;
+    box-shadow:0 0 15px 4px rgba(238, 235, 231, 0.06); 
 }
 
-input[type="password"]{
-    font-size: 20px; 
+input[type="text"], input[type="password"], textarea, select { 
+    outline: none;
 }
 
 label{
     font-family: "Lucida Console";
     letter-spacing: 1px;
     color: #F3FAFF;
+}
+
+button{
+    padding: 10px;
+    border: none;
+    border-radius: 11px;
+    color:#FF7034;
+    background-color: antiquewhite;
+    width:5%;
+    font-weight: 600;
+    font-family: Arial;
+    font-size: 15px;
+    letter-spacing: 1px;
 }
 
 .login-div{
@@ -44,7 +59,7 @@ label{
     left: 0;
     height: 100%;
     width: 100%;
-    opacity: 0;
+    opacity: 1;
     transition: .5s ease;
     border-radius: 30px;
     background-color: #203354;;
@@ -83,6 +98,16 @@ label{
     font-family: "Lucida Console";
     letter-spacing: 3px;
     color: #F3FAFF;
+    margin: 15px 0;
+}
+
+.user-div{
+    margin: 5px 0;
+}
+
+.pass-div{
+    margin: 5px 0;
+    height: 55px;
 }
 
 .login-form{
@@ -90,10 +115,10 @@ label{
     position: relative;
 }
 
-.form-div{
-    background-color: #203354;
-    z-index: 1000;
-}
+/* .form-div{
+    width: 400px;
+
+} */
 
 .image{
     display: block;
@@ -106,5 +131,6 @@ label{
 .signup-div{
     text-align: center;
     position: relative;
+    margin: 10px 0;
 };
 
