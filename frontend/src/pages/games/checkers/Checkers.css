@@ -1,0 +1,40 @@
+.Container {
+    justify-content: center;
+    display: grid;
+    grid-template-columns: 50px 50px 50px 50px 50px 50px 50px 50px;
+    grid-template-rows: 50px 50px 50px 50px 50px 50px 50px 50px;
+    
+}
+
+.Piece {
+    cursor: grab;
+}
+
+.Gamebutton {
+    display: block;
+    background-color:lawngreen;
+    border: none;
+    color:black;
+    padding: 20px;
+    font-size: 20px;
+    margin-top: 50px;
+    cursor: pointer;
+    width: 110px;
+    margin-right: 5px;
+    float: left;
+    text-align: center;
+    
+}
+
+.Gamebutton:hover {
+    background-color: coral;
+}
+
+.Clear {
+    clear: both;
+    float: none;
+    
+}
+
+
+/* grabbing, no-drop  */

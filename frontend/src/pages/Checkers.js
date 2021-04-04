@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import "./GameSuite.css";
+import "./games/checkers/Checkers.css";
 import Board from "./games/checkers/Board";
 
 // code list of props here, find out how to specify props at bottom
@@ -25,6 +26,10 @@ const Checkers = (props) => {
       </div>
 
       <Board></Board>
+      <div className = "Clear">
+        <button onClick={console.log("reset")} className = "Gamebutton">Reset</button>
+        <button onClick={console.log("rules")} className = "Gamebutton">Rules</button>
+      </div>
     </div>
   );
 };
