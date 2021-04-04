@@ -31,9 +31,9 @@ function App() {
           <Route exact path="/">
             <Login></Login>
           </Route>
-          <Route path="/gamesuite">
+          <PrivateRoute path="/gamesuite">
             <GameSuite></GameSuite>
-          </Route>
+          </PrivateRoute>
           <Route path="/checkers">
             <Checkers></Checkers>
           </Route>

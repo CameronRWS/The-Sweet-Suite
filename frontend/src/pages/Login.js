@@ -3,11 +3,13 @@ import { useHistory, BrowserRouter, Link } from 'react-router-dom';
 import './Login.css'
 import backdrop2 from './images/backdrop2.jpg';
 import GameBot from './images/GameBot.png';
+import Auth from '../Auth';
 
 const Login = () => {
     const [userId, setUserId] = useState("");
     const [password, setPassword] = useState("");
     const [status, setStatus] = useState("");
+    const [displayError, setDisplayError] = useState("");
     const history = useHistory();
     document.body.style = 'background: #93D3FB;';
 
@@ -49,9 +51,15 @@ const Login = () => {
             body: JSON.stringify(data),
         }).then(response => response.json()).then(data => {
             setStatus(data.status);
+            console.log(Auth.isAuthenticated);
             if (data.isSuccessful){
-                let path = '/gamesuite';
-                history.push(path);
+                // let path = '/gamesuite';
+                // history.push(path);
+                Auth.authenticate();
+                console.log(Auth.isAuthenticated);
+            }
+            else {
+                setDisplayError("username or password not recognized");
             }
         })
     };
@@ -72,9 +80,10 @@ const Login = () => {
                     <div className="user-div">
                         <input type="text" data-test="user" placeholder="username" value={userId} onChange={handleUserChange}></input>
                     </div>
-                    <div className="pass-div">
+                    <div>
                         <input type="password" data-test="pass" placeholder="password" value={password} onChange={handlePassChange}></input>
                     </div>
+                    <div style={{ color: "red", "fontSize": "15px", margin: "10px 0"}}>{displayError}</div>
                     <button type="submit" onClick={handleLogin}>Login</button>
                 </form>
                 <div className="signup-div">
