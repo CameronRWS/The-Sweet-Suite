@@ -2,12 +2,11 @@ import React, { useState } from "react";
 import { Link, Redirect, useHistory } from "react-router-dom";
 import './GameSuite.css';
 import checkers from './images/Checkers.jpg';
-import Login from './Login';
-import Auth from '../Auth';
+
 
 const GameSuite = (props) => {
     const history = useHistory();
-    console.log("authorized= ", Auth.isAuthenticated);
+    console.log("authorized= ", props.auth);
 
 
     const loadCheckers = () => {
@@ -22,7 +21,7 @@ const GameSuite = (props) => {
     
     return (
         <>
-            {Auth.isAuthenticated ? (
+            {props.auth ? (
                 <div>
                     <a className = "Settings" onClick = {loadSettings}>Settings</a>
                 <div className = "GameSuiteHeader">

@@ -10,7 +10,6 @@ const Login = (props) => {
     const [password, setPassword] = useState("");
     const [status, setStatus] = useState("");
     const [displayError, setDisplayError] = useState("");
-    //const [authState, setAuthState] = useState(Auth.isAuthenticated);
     const history = useHistory();
     document.body.style = 'background: #93D3FB;';
 
@@ -53,8 +52,9 @@ const Login = (props) => {
             if (data.isSuccessful){
                 let path = '/gamesuite';
                 history.push(path);
-                Auth.authenticate();
-                console.log("auth at login", Auth.isAuthenticated);
+                //Auth.authenticate();
+                props.auth(true);
+                //console.log("auth at login", Auth.isAuthenticated);
             }
             else {
                 setDisplayError("username or password not recognized");
