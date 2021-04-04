@@ -11,7 +11,6 @@
 }
 
 .Gamebutton {
-    display: block;
     background-color:lawngreen;
     border: none;
     color:black;
@@ -21,9 +20,6 @@
     cursor: pointer;
     width: 110px;
     margin-right: 5px;
-    float: left;
-    text-align: center;
-    
 }
 
 .Gamebutton:hover {
@@ -32,8 +28,38 @@
 
 .Clear {
     clear: both;
-    float: none;
-    
+    float: none;  
+    text-align: center;  
+}
+
+.PopUp {
+    position: absolute;
+    color:#444;
+    background: rgba(255,255,255,0.7);
+}
+
+.PopUp.internal {
+    position: relative;
+    width: 300px;
+    margin: 0 auto;
+}
+
+.PopUp.internal.close {
+    padding: 5px;
+    position: absolute;
+    width: auto;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    background-color: rgba(0,0,0,0.25);
+}
+
+.modal_content {
+    background-color: white;
+    position: absolute;
 }
 
 
