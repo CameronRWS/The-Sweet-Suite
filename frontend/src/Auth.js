@@ -5,7 +5,7 @@ const Auth = {
         this.isAuthenticated = true;
     },
     
-    signout() {
+    unauthenticate() {
         this.isAuthenticated = false;
     },
 

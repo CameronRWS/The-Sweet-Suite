@@ -5,15 +5,14 @@ import backdrop2 from './images/backdrop2.jpg';
 import GameBot from './images/GameBot.png';
 import Auth from '../Auth';
 
-const Login = () => {
+const Login = (props) => {
     const [userId, setUserId] = useState("");
     const [password, setPassword] = useState("");
     const [status, setStatus] = useState("");
     const [displayError, setDisplayError] = useState("");
+    //const [authState, setAuthState] = useState(Auth.isAuthenticated);
     const history = useHistory();
     document.body.style = 'background: #93D3FB;';
-
-    //CFEBFD
 
     const validateForm = () =>{
         return userId.length > 0 && password.length > 0;
@@ -51,15 +50,15 @@ const Login = () => {
             body: JSON.stringify(data),
         }).then(response => response.json()).then(data => {
             setStatus(data.status);
-            console.log(Auth.isAuthenticated);
             if (data.isSuccessful){
-                // let path = '/gamesuite';
-                // history.push(path);
+                let path = '/gamesuite';
+                history.push(path);
                 Auth.authenticate();
-                console.log(Auth.isAuthenticated);
+                console.log("auth at login", Auth.isAuthenticated);
             }
             else {
                 setDisplayError("username or password not recognized");
+                Auth.unauthenticate();
             }
         })
     };
@@ -70,6 +69,7 @@ const Login = () => {
     }
 
     return(
+        
         <div className="login-div">
             <img src={backdrop2} className="image"></img>
             <div className="overlay">

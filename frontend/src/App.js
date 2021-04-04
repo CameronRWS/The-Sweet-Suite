@@ -4,25 +4,14 @@ import GameSuite from "./pages/GameSuite";
 import Checkers from "./pages/Checkers";
 import Signup from "./pages/Signup";
 import Settings from "./pages/Settings";
-import Auth from "./Auth";
+import React, {useState} from "react";
 
 function App() {
-  const PrivateRoute = ({ component: Component, ...rest }) => (
-    <Route
-      {...rest}
-      render={ props =>
-        Auth.getAuth() ? (
-        <Component {...props} />
-        ) : (
-          <Redirect
-            to={{
-              pathname: "/"
-            }}
-          />
-        )
-      }
-    />
-    );
+  const [authorized, setAuthorized] = useState(false);
+
+  const authorize = (bool) => {
+    setAuthorized(bool);
+  };
 
   return (
     <div>
@@ -31,9 +20,9 @@ function App() {
           <Route exact path="/">
             <Login></Login>
           </Route>
-          <PrivateRoute path="/gamesuite">
+          <Route path="/gamesuite">
             <GameSuite></GameSuite>
-          </PrivateRoute>
+          </Route>
           <Route path="/checkers">
             <Checkers></Checkers>
           </Route>
