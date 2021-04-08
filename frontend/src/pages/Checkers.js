@@ -1,11 +1,10 @@
 import React, { useState } from "react";
-import { Link, Redirect, useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import './GameSuite.css';
 
 // code list of props here, find out how to specify props at bottom
 const Checkers = (props) => {
     const history = useHistory();
-    console.log("authorized= ", props.authVar);
 
     const loadHome = () => {
         let path = "/gamesuite";
@@ -13,8 +12,6 @@ const Checkers = (props) => {
     };
 
     return (
-        <>
-            {props.authVar ? (
         <div>
             <a onClick = {loadHome} className ="BackButton">Back</a>
         <div className = "GameSuiteHeader">
@@ -98,10 +95,6 @@ const Checkers = (props) => {
 
             </div>
         </div>
-            ):(
-                <Redirect to="/"></Redirect>
-            )}
-            </>
     )
 }
 

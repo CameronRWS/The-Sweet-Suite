@@ -3,7 +3,6 @@ import { useHistory, BrowserRouter, Link } from 'react-router-dom';
 import './Login.css'
 import backdrop2 from './images/backdrop2.jpg';
 import GameBot from './images/GameBot.png';
-import Auth from '../Auth';
 
 const Login = (props) => {
     const [userId, setUserId] = useState("");
@@ -11,7 +10,6 @@ const Login = (props) => {
     const [status, setStatus] = useState("");
     const [displayError, setDisplayError] = useState("");
     const history = useHistory();
-    const forceUpdate = useForceUpdate();
     document.body.style = 'background: #93D3FB;';
 
     const validateForm = () =>{
@@ -53,16 +51,9 @@ const Login = (props) => {
             if (data.isSuccessful){
                 let path = '/gamesuite';
                 history.push(path);
-                //Auth.authenticate();
-                props.authFunc(true, userId);
-                forceUpdate();
-                //console.log("auth at login", Auth.isAuthenticated);
             }
             else {
                 setDisplayError("username or password not recognized");
-                props.authFunc(false, "");
-                forceUpdate();
-                Auth.unauthenticate();
             }
         })
     };
@@ -73,7 +64,6 @@ const Login = (props) => {
     }
 
     return(
-
         <div className="login-div">
             <img src={backdrop2} className="image"></img>
             <div className="overlay">
@@ -98,11 +88,6 @@ const Login = (props) => {
         </div>
 
     );
-}
-
-function useForceUpdate(){
-    const [value, setValue] = useState(0); // integer state
-    return () => setValue(value => value + 1); // update the state to force render
 }
 
 export default Login;
