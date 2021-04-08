@@ -27,7 +27,7 @@ function App() {
             <GameSuite authVar={authorized}></GameSuite>
           </Route>
           <Route path="/checkers">
-            <Checkers></Checkers>
+            <Checkers authVar={authorized}></Checkers>
           </Route>
           <Route path="/signup">
             <Signup></Signup>
