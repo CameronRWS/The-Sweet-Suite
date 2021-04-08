@@ -7,24 +7,33 @@ import Settings from "./pages/Settings";
 import React, {useState} from "react";
 
 function App() {
+  const [authorized, setAuthorized] = useState(false);
+  const [username, setUsername] = useState("");
+
+  const authorize = (bool, user) => {
+    setAuthorized(bool);
+    setUsername(user);
+  };
+
+
   return (
     <div>
       <BrowserRouter>
         <Switch>
           <Route exact path="/">
-            <Login></Login>
+            <Login authFunc={authorize}></Login>
           </Route>
           <Route path="/gamesuite">
-            <GameSuite></GameSuite>
+            <GameSuite authVar={authorized}></GameSuite>
           </Route>
           <Route path="/checkers">
-            <Checkers></Checkers>
+            <Checkers authVar={authorized}></Checkers>
           </Route>
           <Route path="/signup">
             <Signup></Signup>
           </Route>
           <Route path="/settings">
-            <Settings></Settings>
+            <Settings auth ={username}></Settings>
             </Route>
         </Switch>
       </BrowserRouter>
