@@ -18,10 +18,10 @@ function App() {
       <BrowserRouter>
         <Switch>
           <Route exact path="/">
-            <Login auth={authorize}></Login>
+            <Login authFunc={authorize}></Login>
           </Route>
           <Route path="/gamesuite">
-            <GameSuite auth={authorized}></GameSuite>
+            <GameSuite authVar={authorized}></GameSuite>
           </Route>
           <Route path="/checkers">
             <Checkers></Checkers>

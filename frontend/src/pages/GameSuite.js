@@ -6,7 +6,7 @@ import checkers from './images/Checkers.jpg';
 
 const GameSuite = (props) => {
     const history = useHistory();
-    console.log("authorized= ", props.auth);
+    console.log("authorized= ", props.authVar);
 
 
     const loadCheckers = () => {
@@ -21,7 +21,7 @@ const GameSuite = (props) => {
     
     return (
         <>
-            {props.auth ? (
+            {props.authVar ? (
                 <div>
                     <a className = "Settings" onClick = {loadSettings}>Settings</a>
                 <div className = "GameSuiteHeader">
