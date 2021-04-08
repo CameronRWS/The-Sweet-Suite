@@ -33,7 +33,7 @@ function App() {
             <Signup></Signup>
           </Route>
           <Route path="/settings">
-            <Settings auth ={username}></Settings>
+            <Settings auth ={username} authVar={authorized}></Settings>
             </Route>
         </Switch>
       </BrowserRouter>
