@@ -4,6 +4,7 @@ import "./GameSuite.css";
 import "./games/checkers/Checkers.css";
 import Board from "./games/checkers/Board";
 import Modal from "../Modal";
+import Game from "./games/checkers/Game";
 
 // code list of props here, find out how to specify props at bottom
 const Checkers = (props) => {
@@ -38,7 +39,7 @@ const Checkers = (props) => {
       <div className="Checkers"></div>
 
       <div className="Container">
-        <Board></Board>
+        <Game></Game>
       </div>
 
       <div className="Clear">
