@@ -11,6 +11,7 @@ const Login = (props) => {
     const [status, setStatus] = useState("");
     const [displayError, setDisplayError] = useState("");
     const history = useHistory();
+    const forceUpdate = useForceUpdate();
     document.body.style = 'background: #93D3FB;';
 
     const validateForm = () =>{
@@ -53,11 +54,14 @@ const Login = (props) => {
                 let path = '/gamesuite';
                 history.push(path);
                 //Auth.authenticate();
-                props.auth(true, userId);
+                props.authFunc(true, userId);
+                forceUpdate();
                 //console.log("auth at login", Auth.isAuthenticated);
             }
             else {
                 setDisplayError("username or password not recognized");
+                props.authFunc(false, "");
+                forceUpdate();
                 Auth.unauthenticate();
             }
         })
@@ -94,6 +98,11 @@ const Login = (props) => {
         </div>
 
     );
+}
+
+function useForceUpdate(){
+    const [value, setValue] = useState(0); // integer state
+    return () => setValue(value => value + 1); // update the state to force render
 }
 
 export default Login;
