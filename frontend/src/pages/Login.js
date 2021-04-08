@@ -55,6 +55,7 @@ const Login = (props) => {
                 history.push(path);
                 //Auth.authenticate();
                 props.authFunc(true, userId);
+                console.log(true);
                 forceUpdate();
                 //console.log("auth at login", Auth.isAuthenticated);
             }
