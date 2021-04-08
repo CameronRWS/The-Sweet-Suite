@@ -8,10 +8,13 @@ import React, {useState} from "react";
 
 function App() {
   const [authorized, setAuthorized] = useState(false);
+  const [username, setUsername] = useState("");
 
-  const authorize = (bool) => {
+  const authorize = (bool, user) => {
     setAuthorized(bool);
+    setUsername(user);
   };
+
 
   return (
     <div>
@@ -30,7 +33,7 @@ function App() {
             <Signup></Signup>
           </Route>
           <Route path="/settings">
-            <Settings></Settings>
+            <Settings auth ={username}></Settings>
             </Route>
         </Switch>
       </BrowserRouter>

@@ -53,7 +53,7 @@ const Login = (props) => {
                 let path = '/gamesuite';
                 history.push(path);
                 //Auth.authenticate();
-                props.auth(true);
+                props.auth(true, userId);
                 //console.log("auth at login", Auth.isAuthenticated);
             }
             else {
@@ -69,7 +69,7 @@ const Login = (props) => {
     }
 
     return(
-        
+
         <div className="login-div">
             <img src={backdrop2} className="image"></img>
             <div className="overlay">
@@ -92,7 +92,7 @@ const Login = (props) => {
                 </div>
             </div>
         </div>
-        
+
     );
 }
 
