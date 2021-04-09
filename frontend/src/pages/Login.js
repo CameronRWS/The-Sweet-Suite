@@ -18,7 +18,7 @@ const Login = () => {
     };
 
     const handleSubmit = (event) => {
-        event.preventDefault();   
+        event.preventDefault();
     };
 
     const handleUserChange = (event) =>{
@@ -55,6 +55,11 @@ const Login = () => {
             }
         })
     };
+
+    const goToSignup = () =>{
+        let path = "/signup"
+        history.push(path);
+    }
 
     return(
         <div className="login-div">
