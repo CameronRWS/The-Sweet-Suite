@@ -36,12 +36,10 @@ const Checkers = (props) => {
       <div className="GameSuiteHeader">
         <p>Checkers</p>
       </div>
-      <div className="Checkers"></div>
-
-      <div className="Container">
-        <Game></Game>
+      <div className="Checkers">
+            <Game></Game>
       </div>
-
+      
       <div className="Clear">
         <button onClick={resetClick} className="Gamebutton">
           Reset
@@ -49,15 +47,17 @@ const Checkers = (props) => {
         <button onClick={rulesClick} className="Gamebutton" id="rules">
           Rules
         </button>
-        <Modal show={showModal}>
-          <div className="PopUp" display="block">
-            <div className="PopUp.internal">
-              <span onClick={rulesClose}>&times;</span>
-              <p>Hello! Welcome to checkers!</p>
-            </div>
-          </div>
-        </Modal>
       </div>
+        <Modal show={showModal}>
+        <div className="PopUp" display="block">
+            <div className="PopUp.internal">
+            <span onClick={rulesClose}>&times;</span>
+            <p>Hello! Welcome to checkers!</p>
+            <h5>BASIC RULES</h5>
+            <h5>HOW THE AI THINKS</h5>
+            </div>
+        </div>
+        </Modal>
     </div>
   );
 };
