@@ -12,18 +12,24 @@ const Settings = (props) => {
         history.push(path);
     }
 
+    const loadLogin = () => {
+        let path = "/"
+        history.push(path);
+    };
+
     return (
         <>
-        {props.authVar ? (
-        <div>
-            <a className = "BackButton" onClick = {loadHome}>Back</a>
-        <div className = "GameSuiteHeader">
-            <p>Settings</p>
-        </div>
-        </div>
-        ):(
-            <Redirect to="/"></Redirect>
-        )}
+            {props.authVar ? (
+                <div>
+                    <a className = "BackButton" onClick = {loadHome}>Back</a>
+                    <div className = "GameSuiteHeader">
+                        <p>Settings</p>
+                    </div>
+                    <button onClick={loadLogin}>Logout</button>
+                </div>
+            ):(
+                <Redirect to="/"></Redirect>
+            )}
         </>
     )
 }

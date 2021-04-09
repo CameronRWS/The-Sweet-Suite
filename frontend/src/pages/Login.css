@@ -20,7 +20,7 @@ label{
     color: #F3FAFF;
 }
 
-button{
+.login-bttn{
     padding: 13px;
     border: none;
     border-radius: 11px;
@@ -35,7 +35,7 @@ button{
     outline: none;
 }
 
-button:hover{
+.login-bttn:hover{
     background-color: #fcb989;
     color: #FF7034;
 }

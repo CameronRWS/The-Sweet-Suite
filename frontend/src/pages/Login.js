@@ -82,7 +82,7 @@ const Login = (props) => {
                         <input type="password" data-test="pass" placeholder="password" value={password} onChange={handlePassChange}></input>
                     </div>
                     <div style={{ color: "red", "fontSize": "15px", margin: "10px 0"}}>{displayError}</div>
-                    <button type="submit" onClick={handleLogin}>Login</button>
+                    <button className="login-bttn" type="submit" onClick={handleLogin}>Login</button>
                 </form>
                 <div className="signup-div">
                     <p className="signup-text">Don't have an account?</p>

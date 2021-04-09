@@ -21,7 +21,7 @@ const GameSuite = (props) => {
     
     return (
         <>
-            { props.authVar ? (
+            {props.authVar ? (
                 <div>
                     <a className = "Settings" onClick = {loadSettings}>Settings</a>
                 <div className = "GameSuiteHeader">
