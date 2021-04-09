@@ -170,7 +170,7 @@ function UpdateForm(props) {
 
   const checkUser = (status) => {
     if (status == 500) {
-      setData({ usernameError: "User already exists" });
+      setData({ usernameError: "Error. Please try again." });
     } else {
       setData({ toLogin: true });
     }
@@ -193,7 +193,10 @@ function UpdateForm(props) {
   };
 
   return (
+
     <div>
+      {data.toLogin && <Redirect to='/gamesuite'></Redirect>}
+    <h3>Update profile Information</h3>
       <form onSubmit={handleSubmit}>
         <div>
           <input
@@ -236,7 +239,7 @@ function UpdateForm(props) {
         <div style={{ color: "red" }}>{data.emailError}</div>
         <div style={{ color: "red" }}>{data.displayError}</div>
         <button type="submit" onClick={handleSignup}>
-          Signup
+          Update
         </button>
       </form>
     </div>
