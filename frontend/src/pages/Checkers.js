@@ -41,7 +41,7 @@ const Checkers = (props) => {
       </div>
       
       <div className="Clear">
-        <button onClick={resetClick} className="Gamebutton">
+        <button class='reset' onClick={resetClick} className="Gamebutton">
           Reset
         </button>
         <button onClick={rulesClick} className="Gamebutton" id="rules">
