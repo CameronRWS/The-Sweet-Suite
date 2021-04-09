@@ -30,6 +30,24 @@ it('states you are playing checkers', () => {
         ReactDOM.render(<Checkers/>, container);
     });
 
-    const resetButtonText = container.querySelector('p');
-    expect(resetButtonText.textContent).toBe('Checkers');
+    const titleText = container.querySelector('p');
+    expect(titleText.textContent).toBe('Checkers');
+});
+
+it('contains a reset button', () => {
+    act(() => {
+        ReactDOM.render(<Checkers/>, container);
+    });
+
+    const resetButtonText = container.querySelectorAll('button');
+    expect(resetButtonText[64].textContent).toBe('Reset');
+});
+
+it('contains a rules button', () => {
+    act(() => {
+        ReactDOM.render(<Checkers/>, container);
+    });
+
+    const rulesButtonText = container.querySelectorAll('button');
+    expect(rulesButtonText[65].textContent).toBe('Rules');
 });
