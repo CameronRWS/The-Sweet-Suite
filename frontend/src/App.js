@@ -6,13 +6,21 @@ import Signup from "./pages/Signup";
 import Settings from "./pages/Settings";
 import React, {useState} from "react";
 
+var firstCheck = false;
+
 function App() {
   const [authorized, setAuthorized] = useState(false);
   const [username, setUsername] = useState("");
+  
 
   const authorize = (bool, user) => {
     setAuthorized(bool);
     setUsername(user);
+  };
+
+  const updateFirstCheck = (bool) =>{
+    firstCheck = bool;
+    console.log("firstCheck ", firstCheck);
   };
 
 
@@ -21,10 +29,10 @@ function App() {
       <BrowserRouter>
         <Switch>
           <Route exact path="/">
-            <Login authFunc={authorize}></Login>
+            <Login authFunc={authorize} fCheck={updateFirstCheck}></Login>
           </Route>
           <Route path="/gamesuite">
-            <GameSuite authVar={authorized}></GameSuite>
+            <GameSuite authVar={authorized} fCheck={firstCheck} updateFCheck={updateFirstCheck}></GameSuite>
           </Route>
           <Route path="/checkers">
             <Checkers authVar={authorized}></Checkers>

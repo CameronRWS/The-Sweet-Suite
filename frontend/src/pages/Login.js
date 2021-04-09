@@ -53,24 +53,18 @@ const Login = (props) => {
             if (data.isSuccessful){
                 let path = '/gamesuite';
                 history.push(path);
-                //Auth.authenticate();
                 props.authFunc(true, userId);
-                forceUpdate();
+                props.fCheck(true);
+                //forceUpdate();
                 //console.log("auth at login", Auth.isAuthenticated);
             }
             else {
                 setDisplayError("username or password not recognized");
                 props.authFunc(false, "");
                 forceUpdate();
-                Auth.unauthenticate();
             }
         })
     };
-
-    const goToSignup = () =>{
-        let path = "/signup"
-        history.push(path);
-    }
 
     return(
 
