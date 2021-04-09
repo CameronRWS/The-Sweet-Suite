@@ -32,7 +32,7 @@ function App() {
             <Login authFunc={authorize} fCheck={updateFirstCheck}></Login>
           </Route>
           <Route path="/gamesuite">
-            <GameSuite authVar={authorized} fCheck={firstCheck} updateFCheck={updateFirstCheck}></GameSuite>
+            <GameSuite authVar={authorized} fCheck={firstCheck} updateFCheck={updateFirstCheck} user={username}></GameSuite>
           </Route>
           <Route path="/checkers">
             <Checkers authVar={authorized}></Checkers>
