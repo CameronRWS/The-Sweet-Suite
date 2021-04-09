@@ -24,15 +24,6 @@ router.get('/:id', async function(req, res, next) {
     }
 });
 
-router.get('/byUsername/:id', async function(req, res, next) {
-    try {
-        res.json(await players.getByUsername(req.params.id));
-    } catch (err) {
-        console.error(`error while getting ${tableName} `, err.message);
-        next(err);
-    }
-});
-
 router.get('/', async function(req, res, next) {
     try {
         res.json(await players.getAll());
