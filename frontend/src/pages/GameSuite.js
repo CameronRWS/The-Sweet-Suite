@@ -3,19 +3,22 @@ import { Link, Redirect, useHistory } from "react-router-dom";
 import './GameSuite.css';
 import checkers from './images/Checkers.jpg';
 
+var firstCheck = true;
 
 const GameSuite = (props) => {
     const history = useHistory();
+    
     console.log("authorized= ", props.authVar);
-
 
     const loadCheckers = () => {
         let path = "/checkers";
+        firstCheck = false;
         history.push(path);
     };
 
     const loadSettings = () => {
         let path = "/settings";
+        firstCheck = false;
         history.push(path);
     };
     

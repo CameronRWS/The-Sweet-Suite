@@ -25,7 +25,7 @@ const Settings = (props) => {
                     <div className = "GameSuiteHeader">
                         <p>Settings</p>
                     </div>
-                    <button onClick={loadLogin}>Logout</button>
+                    <button style={{"left": "50%"}} onClick={loadLogin}>Logout</button>
                 </div>
             ):(
                 <Redirect to="/"></Redirect>
