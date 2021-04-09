@@ -21,6 +21,7 @@ function UpdateForm(props) {
     password: "",
     email: "",
     display_name: "",
+    id: "",
   });
   const [isloaded, setIsLoaded] = useState(false);
 
@@ -41,6 +42,7 @@ function UpdateForm(props) {
             username: data.username,
             email: data.email,
             display_name: data.display_name,
+            id: data.id
           });
 
           setUsername(data.username);
@@ -144,8 +146,9 @@ function UpdateForm(props) {
         total_score: data.total_score,
         spendable_score: data.spendable_score,
       };
-      fetch("http://localhost:8080/api/players/", {
-        method: "POST",
+      const url = "http://localhost:8080/api/players/" + initialData.id
+      fetch(url, {
+        method: "PUT",
         headers: {
           "Content-Type": "application/json",
         },
@@ -191,7 +194,6 @@ function UpdateForm(props) {
 
   return (
     <div>
-      {console.log(username)}
       <form onSubmit={handleSubmit}>
         <div>
           <input
