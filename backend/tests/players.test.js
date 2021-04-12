@@ -171,3 +171,31 @@ test("POST /api/players/login", async () => {
 			expect(response.body.isSuccessful).toBeFalsy();
 		})
 })
+
+test("PUT /api/players/addScore", async () => {
+    const testPlayer = {
+        username: 'testUser',
+        password: 'myPassword',
+        email: 'testEmail@gmail.com',
+        display_name: 'Tester',
+        total_score: 0,
+        spendable_score: 0 
+    }
+    let id = (await players.create(testPlayer)).id;
+    let scoreToAdd = 1000;
+    await supertest(app)
+        .put("/api/players/addScore")
+        .send({
+            "username": testPlayer.username,
+            "score": scoreToAdd
+        })
+        .expect(200)
+        .then(async (response) => {
+            expect(response.body.total_score).toBe(scoreToAdd);
+            expect(response.body.spendable_score).toBe(scoreToAdd);
+            const playerData = await players.getByUsername(testPlayer.username);
+            expect(playerData.total_score).toBe(scoreToAdd);
+            expect(playerData.spendable_score).toBe(scoreToAdd);
+        })
+    await players.remove(id);
+})
