@@ -3,7 +3,7 @@ import Board from "./Board.js";
 import { ReactCheckers } from './ReactCheckers'
 import { returnPlayerName } from "./helpers/utils";
 import { Router } from "react-router-dom";
-import createBrowserHistory from "history/createBrowserHistory";
+import { createBrowserHistory } from "history";
 import "../../GameSuite.css";
 import "./Checkers.css";
 
