@@ -27,6 +27,23 @@ router.put('/addScore', async function(req, res, next) {
     }
 });
 
+router.put('/spendScore', async function(req, res, next) {
+    try {
+        let player = await players.getByUsername(req.body.username);
+        if(player.spendable_score >= req.body.score) {
+            player.spendable_score = player.spendable_score - req.body.score;
+            res.json(await players.update(player.id, player));
+        } else {
+            let response = "not enough spendable score. requesting to spend " 
+            + req.body.score + " points of the spendable " + player.spendable_score + " points.";
+            res.json({error: response});
+        }
+    } catch (err) {
+        console.error(`error while updating ${tableName}`, err.message);
+        next(err);
+    }
+});
+
 router.get('/:id', async function(req, res, next) {
     try {
         res.json(await players.get(req.params.id));
