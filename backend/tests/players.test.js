@@ -199,3 +199,46 @@ test("PUT /api/players/addScore", async () => {
         })
     await players.remove(id);
 })
+
+test("PUT /api/players/spendScore", async () => {
+    const testPlayer = {
+        username: 'testUser',
+        password: 'myPassword',
+        email: 'testEmail@gmail.com',
+        display_name: 'Tester',
+        total_score: 1000,
+        spendable_score: 1000 
+    }
+    let id = (await players.create(testPlayer)).id;
+    let scoreToSpend1 = 500; //just enough
+    let scoreToSpend2 = 501; //too much
+    await supertest(app)
+        .put("/api/players/spendScore")
+        .send({
+            "username": testPlayer.username,
+            "score": scoreToSpend1
+        })
+        .expect(200)
+        .then(async (response) => {
+            expect(response.body.total_score).toBe(1000);
+            expect(response.body.spendable_score).toBe(500);
+            const playerData = await players.getByUsername(testPlayer.username);
+            expect(playerData.total_score).toBe(1000);
+            expect(playerData.spendable_score).toBe(500);
+        })
+
+    await supertest(app)
+        .put("/api/players/spendScore")
+        .send({
+            "username": testPlayer.username,
+            "score": scoreToSpend2
+        })
+        .expect(200)
+        .then(async (response) => {
+            expect(typeof response.body.error).toBe('string');
+            const playerData = await players.getByUsername(testPlayer.username);
+            expect(playerData.total_score).toBe(1000);
+            expect(playerData.spendable_score).toBe(500);
+        })
+    await players.remove(id);
+})
