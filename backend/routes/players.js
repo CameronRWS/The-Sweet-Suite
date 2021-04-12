@@ -15,6 +15,18 @@ router.post('/login', async function(req, res, next) {
     }
 });
 
+router.put('/addScore', async function(req, res, next) {
+    try {
+        let player = await players.getByUsername(req.body.username);
+        player.total_score = player.total_score + req.body.score;
+        player.spendable_score = player.spendable_score + req.body.score;
+        res.json(await players.update(player.id, player));
+    } catch (err) {
+        console.error(`error while updating ${tableName}`, err.message);
+        next(err);
+    }
+});
+
 router.get('/:id', async function(req, res, next) {
     try {
         res.json(await players.get(req.params.id));
