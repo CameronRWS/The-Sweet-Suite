@@ -22,5 +22,32 @@ it('contains a back button', () => {
     });
 
     const backButton = container.querySelector('a');
-    expect(backButton.textContent).toBe('Back');
+    expect(backButton.textContent).toContain('Back');
+});
+
+it('states you are playing checkers', () => {
+    act(() => {
+        ReactDOM.render(<Checkers/>, container);
+    });
+
+    const titleText = container.querySelector('p');
+    expect(titleText.textContent).toBe('Checkers');
+});
+
+it('contains a reset button', () => {
+    act(() => {
+        ReactDOM.render(<Checkers/>, container);
+    });
+
+    const resetButtonText = container.querySelectorAll('button');
+    expect(resetButtonText[64].textContent).toBe('Reset');
+});
+
+it('contains a rules button', () => {
+    act(() => {
+        ReactDOM.render(<Checkers/>, container);
+    });
+
+    const rulesButtonText = container.querySelectorAll('button');
+    expect(rulesButtonText[65].textContent).toBe('Rules');
 });

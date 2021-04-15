@@ -11,7 +11,7 @@ const Login = (props) => {
     const [status, setStatus] = useState("");
     const [displayError, setDisplayError] = useState("");
     const history = useHistory();
-    const forceUpdate = useForceUpdate();
+    //const forceUpdate = useForceUpdate();
     document.body.style = 'background: #93D3FB;';
 
     const validateForm = () =>{
@@ -19,7 +19,7 @@ const Login = (props) => {
     };
 
     const handleSubmit = (event) => {
-        event.preventDefault();
+        event.preventDefault();   
     };
 
     const handleUserChange = (event) =>{
@@ -54,49 +54,34 @@ const Login = (props) => {
                 let path = '/gamesuite';
                 history.push(path);
                 props.authFunc(true, userId);
-                props.fCheck(true);
+               // props.fCheck(true);
                 //forceUpdate();
                 //console.log("auth at login", Auth.isAuthenticated);
             }
             else {
                 setDisplayError("username or password not recognized");
                 props.authFunc(false, "");
-                forceUpdate();
+                //forceUpdate();
             }
         })
     };
 
     return(
-
-        <div className="login-div">
-            <img src={backdrop2} className="image"></img>
-            <div className="overlay">
-                <h1 className="login-title">The <span className="title-span">Sweet</span> Suite</h1>
-                <img src={GameBot} className="game-bot"></img>
-                <h2 className="login">Login</h2>
-                <form className="login-form" onSubmit={handleSubmit}>
-                    <div className="user-div">
-                        <input type="text" data-test="user" placeholder="username" value={userId} onChange={handleUserChange}></input>
-                    </div>
-                    <div>
-                        <input type="password" data-test="pass" placeholder="password" value={password} onChange={handlePassChange}></input>
-                    </div>
-                    <div style={{ color: "red", "fontSize": "15px", margin: "10px 0"}}>{displayError}</div>
-                    <button className="login-bttn" type="submit" onClick={handleLogin}>Login</button>
-                </form>
-                <div className="signup-div">
-                    <p className="signup-text">Don't have an account?</p>
-                    <Link className="signup-link" to="/signup">Sign Up!</Link>
+        <div>
+            <form onSubmit={handleSubmit}>
+                <div>
+                    <label>User Name</label>
+                    <input type="text" data-test="user" value={userId} onChange={handleUserChange}></input> 
                 </div>
-            </div>
+                <div>
+                    <label>Password</label>
+                    <input type="password" data-test="pass" value={password} onChange={handlePassChange}></input>
+                </div>
+                <button type="submit" onClick={handleLogin}>Login</button>
+            </form>
         </div>
 
     );
-}
-
-function useForceUpdate(){
-    const [value, setValue] = useState(0); // integer state
-    return () => setValue(value => value + 1); // update the state to force render
 }
 
 export default Login;
