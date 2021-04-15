@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import io from "socket.io-client";
 
 import Game from "./Game";
+import Lobby from "./Lobby";
 
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
@@ -16,7 +17,7 @@ const PAGE_LOBBY = "Lobby";
 const PAGE_CREATE_NEW_GAME = "CreateNewGame";
 
 function App() {
-  const [page, setPage] = useState("Game");
+  const [page, setPage] = useState("Lobby");
   const [games, setGames] = useState([]);
   const [color, setColor] = useState("");
   const [game, setGame] = useState({ board: [], chat: [] });
@@ -102,29 +103,25 @@ function App() {
 
   return (
     <>
-      <Navbar bd="dark" variant="dark">
-        <Navbar.Brand href="#home">Online Checkers</Navbar.Brand>
-        <Nav>
-          <Nav.Link onClick={() => setPage(PAGE_LOBBY)}>Lobby</Nav.Link>
-        </Nav>
-      </Navbar>
-      <Container>
-        <Row>
-          <Col>
-            {page === PAGE_LOBBY && <div>lobby</div>}
-            {page === PAGE_CREATE_NEW_GAME && <div>create new game</div>}
-            {page === PAGE_GAME && (
-              <Game
-                color={color}
-                game={game}
-                leaveGame={leaveGame}
-                movePiece={movePiece}
-                sendChat={sendChat}
-              />
-            )}
-          </Col>
-        </Row>
-      </Container>
+      {page === PAGE_LOBBY && (
+        <Lobby
+          createGame={createGame}
+          displayname="john"
+          joinGame={joinGame}
+          games={games}
+        ></Lobby>
+      )}
+      {page === PAGE_CREATE_NEW_GAME && <div>create new game</div>}
+      {page === PAGE_GAME && (
+        <Game
+          color={color}
+          game={game}
+          leaveGame={leaveGame}
+          movePiece={movePiece}
+          sendChat={sendChat}
+        />
+      )}
+
       <Modal show={showModal} onHide={handleCloseModal}>
         <Modal.Header closeButton>
           <Modal.Title>{modalTitle}</Modal.Title>

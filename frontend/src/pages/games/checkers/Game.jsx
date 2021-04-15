@@ -6,8 +6,7 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Spinner from 'react-bootstrap/Spinner';
 
-import { ReactCheckers } from './ReactCheckers'
-import { returnPlayerName } from "./helpers/utils";
+
 import { Router } from "react-router-dom";
 import classNames from 'classnames';
 import createBrowserHistory from "history/createBrowserHistory";
@@ -37,7 +36,7 @@ export default function Game({
 
   // useEffect(() => {
   //   return () => leaveGame();
-  // })
+  // }, []);
 
   const selectPiece = (i, j) => {
     if (game.turn !== color) return;
