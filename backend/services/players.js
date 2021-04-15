@@ -22,7 +22,15 @@ async function get(id){
         `SELECT * FROM ${tableName} WHERE id=?`, 
         [id]
     );
-    return !result ? [] : result;
+    return !result ? [] : result[0];
+}
+
+async function getByUsername(username){
+    const result = await db.query(
+        `SELECT * FROM ${tableName} WHERE username=?`, 
+        [username]
+    );
+    return !result ? [] : result[0];
 }
 
 async function create(player) {
@@ -42,14 +50,14 @@ async function create(player) {
             new Date().toISOString().slice(0, 19).replace('T', ' ')
         ]
     );
-    return !result ? [] : result;
+    return !result ? [] : this.getByUsername(player.username);
 }
 
 async function update(id, player){
     player.password = await bcrypt.hash(player.password, 10);
     const result = await db.query(
         `UPDATE ${tableName} 
-        SET username=?, password=?, email=?, display_name=?, total_score=?, spendable_score=?, created_on=?
+        SET username=?, password=?, email=?, display_name=?, total_score=?, spendable_score=? 
         WHERE id=?`, 
         [
             player.username,
@@ -61,7 +69,7 @@ async function update(id, player){
             id
         ]
     );
-    return !result ? [] : result;
+    return !result ? [] : this.getByUsername(player.username);
 }
 
 async function remove(id){
@@ -95,5 +103,5 @@ async function checkLoginResult(result, password) {
 }
 
 module.exports = {
-    login, getAll, get, create, update, remove
+    login, getAll, get, getByUsername, create, update, remove
 }
