@@ -3,7 +3,7 @@ import "../../GameSuite.css";
 import "./Checkers.css";
 
 import redpiece from "../../../pages/images/red-checkers-piece.png";
-import blackpiece from "../../../pages/images/black-checker-piece.png";
+import blackpiece from "./black-checker-piece.png";
 
 function onclick(id) {
   console.log(id);

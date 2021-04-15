@@ -7,6 +7,9 @@ import Form from 'react-bootstrap/Form';
 import Spinner from 'react-bootstrap/Spinner';
 
 
+import redpiece from "../../images/red-checkers-piece.png";
+import blackpiece from "../../images/black-checker-piece.png";
+
 import { Router } from "react-router-dom";
 import classNames from 'classnames';
 import createBrowserHistory from "history/createBrowserHistory";
@@ -67,6 +70,10 @@ export default function Game({
   const getColor = (piece) =>
     piece === 1 ? 'red' : 'black';
 
+  const getImage = (piece) => {
+    return piece ===1 ? redpiece: blackpiece;
+  }
+
   const renderBoard = () => {
     return (
       <div className="Container">
@@ -89,7 +96,9 @@ export default function Game({
                       clickable: color === getColor(piece),
                     })}
                     onClick={() => selectPiece(i, j)}
-                  ></div>
+                  >
+                    <img style={{ width: 45, height: 45 }} img={getImage(piece)} alt={getColor(piece)} />
+                  </div>
                 )}
               </div>
             ))}
@@ -136,7 +145,11 @@ export default function Game({
       <div>
         {!isGameStarted() && renderWaiting()}
         {isGameStarted() && renderGame()}
+        <img style={{ width: 45, height: 45 }} img={redpiece} alt={'red'} />
+
       </div>
+
+
 
 
   )
