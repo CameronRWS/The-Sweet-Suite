@@ -3,15 +3,16 @@ import { useHistory, BrowserRouter, Link } from 'react-router-dom';
 import './Login.css'
 import backdrop2 from './images/backdrop2.jpg';
 import GameBot from './images/GameBot.png';
+import Auth from '../Auth';
 
-const Login = () => {
+const Login = (props) => {
     const [userId, setUserId] = useState("");
     const [password, setPassword] = useState("");
     const [status, setStatus] = useState("");
+    const [displayError, setDisplayError] = useState("");
     const history = useHistory();
+    const forceUpdate = useForceUpdate();
     document.body.style = 'background: #93D3FB;';
-
-    //CFEBFD
 
     const validateForm = () =>{
         return userId.length > 0 && password.length > 0;
@@ -52,16 +53,21 @@ const Login = () => {
             if (data.isSuccessful){
                 let path = '/gamesuite';
                 history.push(path);
+                props.authFunc(true, userId);
+                props.fCheck(true);
+                //forceUpdate();
+                //console.log("auth at login", Auth.isAuthenticated);
+            }
+            else {
+                setDisplayError("username or password not recognized");
+                props.authFunc(false, "");
+                forceUpdate();
             }
         })
     };
 
-    const goToSignup = () =>{
-        let path = "/signup"
-        history.push(path);
-    }
-
     return(
+
         <div className="login-div">
             <img src={backdrop2} className="image"></img>
             <div className="overlay">
@@ -72,10 +78,11 @@ const Login = () => {
                     <div className="user-div">
                         <input type="text" data-test="user" placeholder="username" value={userId} onChange={handleUserChange}></input>
                     </div>
-                    <div className="pass-div">
+                    <div>
                         <input type="password" data-test="pass" placeholder="password" value={password} onChange={handlePassChange}></input>
                     </div>
-                    <button type="submit" onClick={handleLogin}>Login</button>
+                    <div style={{ color: "red", "fontSize": "15px", margin: "10px 0"}}>{displayError}</div>
+                    <button className="login-bttn" type="submit" onClick={handleLogin}>Login</button>
                 </form>
                 <div className="signup-div">
                     <p className="signup-text">Don't have an account?</p>
@@ -83,8 +90,13 @@ const Login = () => {
                 </div>
             </div>
         </div>
-        
+
     );
+}
+
+function useForceUpdate(){
+    const [value, setValue] = useState(0); // integer state
+    return () => setValue(value => value + 1); // update the state to force render
 }
 
 export default Login;

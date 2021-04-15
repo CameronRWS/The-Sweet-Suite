@@ -146,7 +146,7 @@ export default class Signup extends React.Component {
   };
 
   checkUser = (status) => {
-    if (status == 500){
+    if (status === 500){
       this.setState({usernameError: "User already exists"})
     }
     else {
