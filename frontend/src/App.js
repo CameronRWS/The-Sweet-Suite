@@ -9,7 +9,7 @@ import React, {useState} from "react";
 var firstCheck = false;
 
 function App() {
-  const [authorized, setAuthorized] = useState(false);
+  const [authorized, setAuthorized] = useState(true);
   const [username, setUsername] = useState("");
   
 
