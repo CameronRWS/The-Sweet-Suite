@@ -51,6 +51,8 @@
 }
 
 .whiteSquare {
+  height: 50px;
+  width: 50px;
   background-color: white;
   border: 1px solid white;
   padding: 1px;
@@ -59,6 +61,8 @@
 }
 
 .blackSquare {
+  height: 50px;
+  width: 50px;
   background-color: black;
   border: 1px solid black;
   padding: 1px;

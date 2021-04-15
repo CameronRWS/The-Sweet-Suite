@@ -71,7 +71,7 @@ export default function Game({
     return (
       <div className="Container">
         {game.board.map((row, i) => (
-          <div key={i} className="row">
+          <div key={i} >
             {row.map((piece, j) => (
               <div
                 key={`${i} ${j}`}
@@ -103,8 +103,8 @@ export default function Game({
   const renderGame = () =>{
     return(
       <>
-        <Col>
-          <div>Your piece color is {color}</div>
+
+          <div >Your piece color is {color}</div>
           {game.turn === color && (
             <div>It is your Turn!</div>
           )}
@@ -112,16 +112,33 @@ export default function Game({
             <div> waiting for opponent!</div>
           )}
           {renderBoard()}
-        </Col>
+
       </>
     )
   };
 
+  const renderWaiting = () => {
+    return (
+
+        <div >
+          <h2 >{game.name}</h2>
+          <div >
+            <Spinner animation="border" role="status" />
+          </div>
+          <span>Waiting for an opponent....</span>
+        </div>
+
+    );
+  };
+
 
   return (
-    <Row>
-      {isGameStarted() && renderGame()}
-    </Row>
+      <div>
+        {!isGameStarted() && renderWaiting()}
+        {isGameStarted() && renderGame()}
+      </div>
+
+
   )
 };
 

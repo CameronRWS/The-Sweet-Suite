@@ -37,7 +37,7 @@ const Checkers = (props) => {
       </div>
       <div className="Checkers"></div>
 
-      <div className="Container">
+      <div>
         <App></App>
       </div>
 
