@@ -1,11 +1,14 @@
 import React, { useState } from "react";
 import { Link, Redirect, useHistory } from "react-router-dom";
 import './GameSuite.css';
+import UpdateForm from './Updateform';
 
 // code list of props here, find out how to specify props at bottom
 const Settings = (props) => {
     const history = useHistory();
     console.log("authorized= ", props.authVar);
+
+    console.log(props.auth)
 
     const loadHome = () => {
         let path = "/gamesuite";
@@ -26,7 +29,11 @@ const Settings = (props) => {
                         <p>Settings</p>
                     </div>
                     <button style={{"left": "50%"}} onClick={loadLogin}>Logout</button>
+                    <div>
+                        <UpdateForm auth={props.auth}></UpdateForm>
+                    </div>
                 </div>
+                
             ):(
                 <Redirect to="/"></Redirect>
             )}

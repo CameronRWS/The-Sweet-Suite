@@ -38,7 +38,7 @@ export default class Signup extends React.Component {
     let uservalidation = this.validateUsername();
     let passwordvalidation = this.validatePassword();
     let Displayvalidation = this.validateDisplay();
-    
+
     if (!Emailvalidation) {
       emailError = "Invalid Email";
     } else {
