@@ -3,7 +3,6 @@ import { useHistory, BrowserRouter, Link } from 'react-router-dom';
 import './Login.css'
 import backdrop2 from './images/backdrop2.jpg';
 import GameBot from './images/GameBot.png';
-import Auth from '../Auth';
 
 const Login = (props) => {
     const [userId, setUserId] = useState("");
@@ -11,7 +10,6 @@ const Login = (props) => {
     const [status, setStatus] = useState("");
     const [displayError, setDisplayError] = useState("");
     const history = useHistory();
-    const forceUpdate = useForceUpdate();
     document.body.style = 'background: #93D3FB;';
 
     const validateForm = () =>{
@@ -50,24 +48,20 @@ const Login = (props) => {
             body: JSON.stringify(data),
         }).then(response => response.json()).then(data => {
             setStatus(data.status);
+            console.log(data);
             if (data.isSuccessful){
                 let path = '/gamesuite';
                 history.push(path);
                 props.authFunc(true, userId);
-                props.fCheck(true);
-                //forceUpdate();
-                //console.log("auth at login", Auth.isAuthenticated);
             }
             else {
                 setDisplayError("username or password not recognized");
                 props.authFunc(false, "");
-                forceUpdate();
             }
         })
     };
 
     return(
-
         <div className="login-div">
             <img src={backdrop2} className="image"></img>
             <div className="overlay">
@@ -86,17 +80,11 @@ const Login = (props) => {
                 </form>
                 <div className="signup-div">
                     <p className="signup-text">Don't have an account?</p>
-                    <Link className="signup-link" to="/signup">Sign Up!</Link>
+                        <Link className="signup-link" to="/signup">Sign Up!</Link>
                 </div>
             </div>
         </div>
-
     );
-}
-
-function useForceUpdate(){
-    const [value, setValue] = useState(0); // integer state
-    return () => setValue(value => value + 1); // update the state to force render
 }
 
 export default Login;

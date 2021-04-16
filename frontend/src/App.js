@@ -1,12 +1,10 @@
 import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
+import React, {useState} from "react";
 import Login from "./pages/Login";
 import GameSuite from "./pages/GameSuite";
 import Checkers from "./pages/Checkers";
 import Signup from "./pages/Signup";
 import Settings from "./pages/Settings";
-import React, {useState} from "react";
-
-var firstCheck = false;
 
 function App() {
   const [authorized, setAuthorized] = useState(true);
@@ -18,21 +16,16 @@ function App() {
     setUsername(user);
   };
 
-  const updateFirstCheck = (bool) =>{
-    firstCheck = bool;
-    console.log("firstCheck ", firstCheck);
-  };
-
 
   return (
     <div>
       <BrowserRouter>
         <Switch>
           <Route exact path="/">
-            <Login authFunc={authorize} fCheck={updateFirstCheck}></Login>
+            <Login authFunc={authorize}></Login>
           </Route>
           <Route path="/gamesuite">
-            <GameSuite authVar={authorized} fCheck={firstCheck} updateFCheck={updateFirstCheck} user={username}></GameSuite>
+            <GameSuite authVar={authorized} user={username}></GameSuite>
           </Route>
           <Route path="/checkers">
             <Checkers authVar={authorized}></Checkers>
@@ -41,7 +34,7 @@ function App() {
             <Signup></Signup>
           </Route>
           <Route path="/settings">
-            <Settings auth ={username} authVar={authorized}></Settings>
+            <Settings auth={username} authVar={authorized}></Settings>
             </Route>
         </Switch>
       </BrowserRouter>
