@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { Link, Redirect, useHistory } from "react-router-dom";
 import './GameSuite.css';
 import checkers from './images/Checkers.jpg';
+import chess from './images/chess.png';
+import mancala from './images/mancala.jpg';
 
 const GameSuite = (props) => {
     const history = useHistory();
@@ -11,6 +13,14 @@ const GameSuite = (props) => {
     const loadCheckers = () => {
         let path = "/checkers";
         history.push(path);
+    };
+
+    const loadChess = () => {
+        console.log("Chess is not yet available");
+    };
+
+    const loadMancala = () => {
+        console.log("Mancala is not yet available");
     };
 
     const loadSettings = () => {
@@ -30,6 +40,12 @@ const GameSuite = (props) => {
                 <div className = "GameSuiteGames">
                     <h3 onClick = {loadCheckers}>Checkers</h3>
                     <img src = {checkers} alt = "checkers board" width = "200" height = "200" onClick = {loadCheckers}></img>
+
+                    <h3 onClick = {loadChess}>Chess</h3>
+                    <img src = {chess} alt = "chess board" width = "200" height = "200" onClick = {loadChess}></img>
+
+                    <h3 onClick = {loadMancala}>Mancala</h3>
+                    <img src = {mancala} alt = "mancala board" width = "100" height = "200" onClick = {loadMancala}></img>
                 </div>
                 </div>
             ):(
