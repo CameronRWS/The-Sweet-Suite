@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import { Link, useHistory } from "react-router-dom";
-import UpdateForm from './Updateform';
-
+import { Link, Redirect, useHistory } from "react-router-dom";
 import './GameSuite.css';
+import UpdateForm from './Updateform';
 
 // code list of props here, find out how to specify props at bottom
 const Settings = (props) => {
     const history = useHistory();
+    console.log("authorized= ", props.authVar);
 
     console.log(props.auth)
 
@@ -15,14 +15,29 @@ const Settings = (props) => {
         history.push(path);
     }
 
+    const loadLogin = () => {
+        let path = "/"
+        history.push(path);
+    };
+
     return (
-        <div>
-            <a className = "BackButton" onClick = {loadHome}>Back</a>
-        <div className = "GameSuiteHeader">
-            <p>Settings</p>
-        </div>
-            <UpdateForm auth={props.auth}></UpdateForm>
-        </div>
+        <>
+            {props.authVar ? (
+                <div>
+                    <a className = "BackButton" onClick = {loadHome}>Back</a>
+                    <div className = "GameSuiteHeader">
+                        <p>Settings</p>
+                    </div>
+                    <button style={{"left": "50%"}} onClick={loadLogin}>Logout</button>
+                    <div>
+                        <UpdateForm auth={props.auth}></UpdateForm>
+                    </div>
+                </div>
+                
+            ):(
+                <Redirect to="/"></Redirect>
+            )}
+        </>
     )
 }
 

@@ -3,7 +3,6 @@ import { useHistory, BrowserRouter, Link } from 'react-router-dom';
 import './Login.css'
 import backdrop2 from './images/backdrop2.jpg';
 import GameBot from './images/GameBot.png';
-import Auth from '../Auth';
 
 const Login = (props) => {
     const [userId, setUserId] = useState("");
@@ -11,7 +10,6 @@ const Login = (props) => {
     const [status, setStatus] = useState("");
     const [displayError, setDisplayError] = useState("");
     const history = useHistory();
-    const forceUpdate = useForceUpdate();
     document.body.style = 'background: #93D3FB;';
 
     const validateForm = () =>{
@@ -50,31 +48,20 @@ const Login = (props) => {
             body: JSON.stringify(data),
         }).then(response => response.json()).then(data => {
             setStatus(data.status);
+            console.log(data);
             if (data.isSuccessful){
                 let path = '/gamesuite';
                 history.push(path);
-                //Auth.authenticate();
                 props.authFunc(true, userId);
-                console.log(true);
-                forceUpdate();
-                //console.log("auth at login", Auth.isAuthenticated);
             }
             else {
                 setDisplayError("username or password not recognized");
                 props.authFunc(false, "");
-                forceUpdate();
-                Auth.unauthenticate();
             }
         })
     };
 
-    const goToSignup = () =>{
-        let path = "/signup"
-        history.push(path);
-    }
-
     return(
-
         <div className="login-div">
             <img src={backdrop2} className="image"></img>
             <div className="overlay">
@@ -89,7 +76,7 @@ const Login = (props) => {
                         <input type="password" data-test="pass" placeholder="password" value={password} onChange={handlePassChange}></input>
                     </div>
                     <div style={{ color: "red", "fontSize": "15px", margin: "10px 0"}}>{displayError}</div>
-                    <button type="submit" onClick={handleLogin}>Login</button>
+                    <button className="login-bttn" type="submit" onClick={handleLogin}>Login</button>
                 </form>
                 <div className="signup-div">
                     <p className="signup-text">Don't have an account?</p>
@@ -97,13 +84,7 @@ const Login = (props) => {
                 </div>
             </div>
         </div>
-
     );
-}
-
-function useForceUpdate(){
-    const [value, setValue] = useState(0); // integer state
-    return () => setValue(value => value + 1); // update the state to force render
 }
 
 export default Login;
