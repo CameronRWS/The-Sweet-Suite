@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import { Link, Redirect, useHistory } from "react-router-dom";
 import './GameSuite.css';
 import UpdateForm from './Updateform';
+import sampleProfPic1 from './images/sample-prof-pic1.png';
+import GameBot from './images/GameBot.png';
+import './Login.css'
 
 // code list of props here, find out how to specify props at bottom
 const Settings = (props) => {
@@ -24,13 +27,15 @@ const Settings = (props) => {
         <>
             {props.authVar ? (
                 <div>
-                    <a className = "BackButton" onClick = {loadHome}>Back</a>
+                    <a className = "backText" onClick = {loadHome}>Back</a>
                     <div className = "GameSuiteHeader">
-                        <p>Settings</p>
+                        <p className="settingsText">Settings</p>
                     </div>
-                    <button style={{"left": "50%"}} onClick={loadLogin}>Logout</button>
-                    <div>
+                    
+                    <div style={{"text-align": "center"}}> 
+                        <img  src={GameBot} width="150" height="150"></img>
                         <UpdateForm auth={props.auth}></UpdateForm>
+                        <button className="login-bttn" onClick={loadLogin}>Logout</button>
                     </div>
                 </div>
                 

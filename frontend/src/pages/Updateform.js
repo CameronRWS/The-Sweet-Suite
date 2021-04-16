@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useHistory, Redirect } from "react-router-dom";
+import './Login.css';
 
 function UpdateForm(props) {
   const [username, setUsername] = useState("");
@@ -238,7 +239,7 @@ function UpdateForm(props) {
         <div style={{ color: "red" }}>{data.passwordError}</div>
         <div style={{ color: "red" }}>{data.emailError}</div>
         <div style={{ color: "red" }}>{data.displayError}</div>
-        <button type="submit" onClick={handleSignup}>
+        <button className="login-bttn" type="submit" onClick={handleSignup}>
           Update
         </button>
       </form>

@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { Link, Redirect, useHistory } from "react-router-dom";
 import './GameSuite.css';
 import checkers from './images/Checkers.jpg';
+import sampleProfPic1 from './images/sample-prof-pic1.png';
+import GameBot from './images/GameBot.png';
 
 const GameSuite = (props) => {
     const history = useHistory();
@@ -24,8 +26,12 @@ const GameSuite = (props) => {
                 <div>
                     <a className = "Settings" onClick = {loadSettings}>Settings</a>
                 <div className = "GameSuiteHeader">
-                    <p>{"Welcome to The Sweet Suite " + props.user + "!"}</p>
-                    <p>These are the games currently available to you</p>
+                    <div className="picDiv">
+                        <img className="profPic" src={GameBot} width="100" height="100"></img>
+                    </div>
+                    
+                    <p className="gameSuiteText">{"Welcome to The Sweet Suite " + props.user + "!"}</p>
+                    <p className="gameSuiteText2">These are the games currently available to you</p>
                 </div>
                 <div className = "GameSuiteGames">
                     <h3 onClick = {loadCheckers}>Checkers</h3>

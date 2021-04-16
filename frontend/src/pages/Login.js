@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import { useHistory, BrowserRouter, Link } from 'react-router-dom';
-import './Login.css'
+import './Settings.css'
 import backdrop2 from './images/backdrop2.jpg';
 import GameBot from './images/GameBot.png';
 
