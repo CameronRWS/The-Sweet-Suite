@@ -48,6 +48,7 @@ const Login = (props) => {
             body: JSON.stringify(data),
         }).then(response => response.json()).then(data => {
             setStatus(data.status);
+            console.log(data);
             if (data.isSuccessful){
                 let path = '/gamesuite';
                 history.push(path);
@@ -79,11 +80,10 @@ const Login = (props) => {
                 </form>
                 <div className="signup-div">
                     <p className="signup-text">Don't have an account?</p>
-                    {/* <Link className="signup-link" to="/signup">Sign Up!</Link> */}
+                        <Link className="signup-link" to="/signup">Sign Up!</Link>
                 </div>
             </div>
         </div>
-
     );
 }
 
