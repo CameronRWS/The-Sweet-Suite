@@ -169,7 +169,7 @@ function UpdateForm(props) {
   };
 
   const checkUser = (status) => {
-    if (status == 500) {
+    if (status === 500) {
       setData({ usernameError: "Error. Please try again." });
     } else {
       setData({ toLogin: true });

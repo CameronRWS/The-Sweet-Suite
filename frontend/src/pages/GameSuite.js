@@ -37,15 +37,30 @@ const GameSuite = (props) => {
                     <p>{"Welcome to The Sweet Suite " + props.user + "!"}</p>
                     <p>These are the games currently available to you</p>
                 </div>
-                <div className = "GameSuiteGames">
-                    <h3 onClick = {loadCheckers}>Checkers</h3>
-                    <img src = {checkers} alt = "checkers board" width = "200" height = "200" onClick = {loadCheckers}></img>
+                <div>
+                    <div>
+                        <h2 font-decoration = "none">Playable Games</h2>
 
-                    <h3 onClick = {loadChess}>Chess</h3>
-                    <img src = {chess} alt = "chess board" width = "200" height = "200" onClick = {loadChess}></img>
+                        <div className = "GameSuiteGames">
+                            <h3 onClick = {loadCheckers}>Checkers</h3>
+                            <img src = {checkers} alt = "checkers board" width = "200" height = "200" onClick = {loadCheckers}></img>
+                        </div>
+                    </div>
+                    <div>
+                        <h2>Coming Soon!</h2>
 
-                    <h3 onClick = {loadMancala}>Mancala</h3>
-                    <img src = {mancala} alt = "mancala board" width = "100" height = "200" onClick = {loadMancala}></img>
+                        <div className = "GameSuiteComingSoon">
+                            <div>
+                            <h3 onClick = {loadChess}>Chess</h3>
+                            <img src = {chess} alt = "chess board" width = "200" height = "200" onClick = {loadChess}></img>
+                            </div>
+
+                            <div>
+                            <h3 onClick = {loadMancala}>Mancala</h3>
+                            <img src = {mancala} alt = "mancala board" width = "100" height = "200" onClick = {loadMancala}></img>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 </div>
             ):(

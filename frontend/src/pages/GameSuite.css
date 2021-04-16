@@ -21,6 +21,20 @@
   text-decoration: underline;
 }
 
+.GameSuiteComingSoon {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 8px 25px;
+  margin: 5px 10px;
+  margin-right: 10px;
+  border-radius: 5px;
+  color: #150531;
+  text-align: left;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  text-decoration: underline;
+}
+
 .BackButton{
   padding: 8px 25px;
   margin: 5px 10px;
