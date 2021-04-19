@@ -39,7 +39,7 @@ const Checkers = (props) => {
               <div className="Checkers"></div>
 
               <div>
-                <App></App>
+                <App user={props.user}></App>
               </div>
 
               <div className="Clear">

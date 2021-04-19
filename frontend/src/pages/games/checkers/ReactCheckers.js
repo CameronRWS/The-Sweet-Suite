@@ -16,7 +16,7 @@ const PAGE_GAME = "Game";
 const PAGE_LOBBY = "Lobby";
 const PAGE_CREATE_NEW_GAME = "CreateNewGame";
 
-function App() {
+function App(props) {
   const [page, setPage] = useState("Lobby");
   const [games, setGames] = useState([]);
   const [color, setColor] = useState("");
@@ -26,6 +26,7 @@ function App() {
   const [showModal, setShowModal] = useState(false);
   const [modalTitle, setModalTitle] = useState("");
   const [modalText, setModalText] = useState("");
+  const [username] = useState(props.user);
 
   const joinGame = (gameId) => {
     socket.emit("join-game", gameId);
@@ -106,7 +107,7 @@ function App() {
       {page === PAGE_LOBBY && (
         <Lobby
           createGame={createGame}
-          displayname="john"
+          displayname={username}
           joinGame={joinGame}
           games={games}
         ></Lobby>
