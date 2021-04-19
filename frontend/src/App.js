@@ -8,8 +8,8 @@ import Settings from "./pages/Settings";
 
 function App() {
   const [authorized, setAuthorized] = useState(true);
-  const [username, setUsername] = useState("");
-  
+  const [username, setUsername] = useState("testman");
+
 
   const authorize = (bool, user) => {
     setAuthorized(bool);
@@ -28,7 +28,7 @@ function App() {
             <GameSuite authVar={authorized} user={username}></GameSuite>
           </Route>
           <Route path="/checkers">
-            <Checkers authVar={authorized}></Checkers>
+            <Checkers authVar={authorized} user={username}></Checkers>
           </Route>
           <Route path="/signup">
             <Signup></Signup>

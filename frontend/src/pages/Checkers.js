@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link, Redirect, useHistory } from "react-router-dom";
 import './GameSuite.css';
-import Game from "./games/checkers/Game";
+import App from "./games/checkers/ReactCheckers";
 import Modal from "../Modal";
 import "./games/checkers/Checkers.css";
 
@@ -17,15 +17,15 @@ const Checkers = (props) => {
     const resetClick = () => {
       console.log("reset");
     };
-  
+
     const rulesClick = (event) => {
       setShowModal(true);
     };
-  
+
     const rulesClose = (event) => {
       setShowModal(false);
     };
-  
+
     return (
         <>
             {props.authVar ? (
@@ -36,10 +36,12 @@ const Checkers = (props) => {
               <div className="GameSuiteHeader">
                 <p>Checkers</p>
               </div>
-              <div className="Checkers">
-                    <Game></Game>
+              <div className="Checkers"></div>
+
+              <div>
+                <App user={props.user}></App>
               </div>
-              
+
               <div className="Clear">
                 <button class='reset' onClick={resetClick} className="Gamebutton">
                   Reset
