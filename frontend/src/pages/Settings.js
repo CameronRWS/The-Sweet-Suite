@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link, Redirect, useHistory } from "react-router-dom";
 import './GameSuite.css';
+import './Forms.css';
 import UpdateForm from './Updateform';
 
 // code list of props here, find out how to specify props at bottom
@@ -28,7 +29,7 @@ const Settings = (props) => {
                     <div className = "GameSuiteHeader">
                         <p>Settings</p>
                     </div>
-                    <button style={{"left": "50%"}} onClick={loadLogin}>Logout</button>
+                    <button className="logout-bttn" style={{"left": "50%"}} onClick={loadLogin}>Logout</button>
                     <div>
                         <UpdateForm auth={props.auth}></UpdateForm>
                     </div>

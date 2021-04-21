@@ -1,4 +1,5 @@
 import React from "react";
+import './Forms.css';
 import { useHistory, Redirect } from "react-router-dom";
 
 function BackButton() {
@@ -9,7 +10,7 @@ function BackButton() {
   }
 
   return (
-    <button type="button" onClick={handleClick}>
+    <button className="back-bttn" type="button" onClick={handleClick}>
       Back
     </button>
   );
@@ -166,7 +167,7 @@ export default class Signup extends React.Component {
     }
 
     return (
-      <div>
+      <div className="customCenter">
         <h1>The Sweet Suite</h1>
         <h2>Sign Up</h2>
         <form onSubmit={this.handleSubmit}>
@@ -210,10 +211,12 @@ export default class Signup extends React.Component {
           <div style={{ color: "red" }}>{this.state.passwordError}</div>
           <div style={{ color: "red" }}>{this.state.emailError}</div>
           <div style={{ color: "red" }}>{this.state.displayError}</div>
-          <button type="submit" onClick={this.handleSignup}>
+          <br/>
+          <button className="signup-bttn" type="submit" onClick={this.handleSignup}>
             Signup
           </button>
         </form>
+        <br/>
         <BackButton></BackButton>
       </div>
     );
