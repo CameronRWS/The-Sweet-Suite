@@ -198,7 +198,7 @@ function UpdateForm(props) {
 
   return (
 
-    <div>
+    <div className="customCenter">
       {data.toLogin && <Redirect to='/gamesuite'></Redirect>}
     <h3>Update profile Information</h3>
       <form onSubmit={handleSubmit}>
@@ -242,7 +242,7 @@ function UpdateForm(props) {
         <div style={{ color: "red" }}>{data.passwordError}</div>
         <div style={{ color: "red" }}>{data.emailError}</div>
         <div style={{ color: "red" }}>{data.displayError}</div>
-        <button type="submit" onClick={handleSignup}>
+        <button className="update-bttn" type="submit" onClick={handleSignup}>
           Update
         </button>
       </form>
