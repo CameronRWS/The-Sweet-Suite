@@ -21,6 +21,8 @@ function UpdateForm(props) {
     password: "",
     email: "",
     display_name: "",
+    total_score: 0,
+    spendable_score: 0,
     id: "",
   });
   const [isloaded, setIsLoaded] = useState(false);
@@ -42,7 +44,9 @@ function UpdateForm(props) {
             username: data.username,
             email: data.email,
             display_name: data.display_name,
-            id: data.id
+            id: data.id,
+            total_score: data.total_score,
+            spendable_score: data.spendable_score,
           });
 
           setUsername(data.username);
@@ -143,8 +147,8 @@ function UpdateForm(props) {
         password: password,
         email: email,
         display_name: displayname,
-        total_score: data.total_score,
-        spendable_score: data.spendable_score,
+        total_score: initialData.total_score,
+        spendable_score: initialData.spendable_score
       };
       const url = "http://localhost:8080/api/players/" + initialData.id
       fetch(url, {
