@@ -88,13 +88,14 @@
     color: white;
   }
   
-  .gameSuiteText{
+  .storeText{
     text-align: center;
       font-size: 32px;
       font-family: fantasy;
       letter-spacing: 3px;
       word-spacing: 10px;
       color: #FF7034;
+      padding: 10px;
   }
   
   .gameSuiteText2{
@@ -143,6 +144,35 @@
     justify-content: center;
     display: grid;
     grid-column-gap: 50px;
+    grid-row-gap: 50px;
     grid-template-columns: 200px 200px 200px;
   }
   
+.avatarP{
+    justify-content: center;
+    text-align: center;
+    margin: 0px 0;
+    font-size: 20px;
+    font-family: fantasy;
+    letter-spacing: 1px;
+    word-spacing: 2px;
+    color: #203354;;
+}
+
+.setAvatarP{
+    text-align: center;
+    font-size: 25px;
+    font-family: fantasy;
+    letter-spacing: 3px;
+    word-spacing: 10px;
+    color: #203354;
+}
+
+.avatarDiv{
+    text-align: center;
+    background-color: #fdede3;
+    margin: 30px 300px;
+    padding: 50px;
+    border-radius: 30px;
+
+}

@@ -60,19 +60,42 @@ const Store = (props) => {
         <>
             {props.authVar ? (
                 <div>
-                    <a className = "backText" onClick = {loadHome}>Back</a>
-                    <a className = "Settings" onClick = {loadSettings}>Settings</a>
-                    <div className = "GameSuiteHeader">
-                        <p className="gameSuiteText">{"The Sweet Suite Store!"}</p>
-                        <p className="gameSuiteText2">These are the avatars available to you</p>
+                    <a className="backText" onClick={loadHome}>Back</a>
+                    <a className="Settings" onClick={loadSettings}>Settings</a>
+                    <div className="GameSuiteHeader">
+                        <div className="picDiv">
+                            <img className="profPic" src={props.pic} width="100" height="100" onClick={loadStore}></img>
+                        </div>
+                        <p className="storeText">{"The Sweet Suite Store!"}</p>
                     </div>
-                    <div className = "Images">
-                        <img src = {GameBot} alt = "game bot" width = "200" height = "200" onClick = {makeProfile}></img>
-                        <img src = {Cactus} alt = "cactus" width = "200" height = "200" onClick = {makeProfile}></img>
-                        <img src = {Dog} alt = "dog" width = "200" height = "200" onClick = {makeProfile}></img>
-                        <img src = {Mushroom} alt = "mushroom" width = "200" height = "200" onClick = {makeProfile}></img>
-                        <img src = {Worms} alt = "worms" width = "200" height = "200" onClick = {makeProfile}></img>
-                        <img src = {Egg} alt = "egg" width = "200" height = "200" onClick = {makeProfile}></img>
+                    <div className="avatarDiv">
+                    <p className="setAvatarP">Click an image to set your avatar.</p>
+                    <div className="Images">
+                        <div>
+                            <img src={GameBot} alt="game bot" width="200" height="200" onClick={makeProfile}></img>
+                            <p className="avatarP">GameBot Dude</p>
+                        </div>
+                        <div>
+                            <img src={Cactus} alt="cactus" width="200" height="200" onClick={makeProfile}></img>
+                            <p className="avatarP">Cactus Dude</p>
+                        </div>
+                        <div>
+                            <img src={Dog} alt="dog" width="200" height="200" onClick={makeProfile}></img>
+                            <p className="avatarP">Dog Dude</p>
+                        </div>
+                        <div>
+                            <img src={Mushroom} alt="mushroom" width="200" height="200" onClick={makeProfile}></img>
+                            <p className="avatarP">Mushroom Dude</p>
+                        </div>
+                        <div>
+                            <img src={Worms} alt="worms" width="200" height="200" onClick={makeProfile}></img>
+                            <p className="avatarP">Worm Dudes</p>
+                        </div>
+                        <div>
+                            <img src={Egg} alt="egg" width="200" height="200" onClick={makeProfile}></img>
+                            <p className="avatarP">Egg Dude</p>
+                        </div>
+                    </div>
                     </div>
                 </div>
             ):(
