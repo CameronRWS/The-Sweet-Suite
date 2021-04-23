@@ -53,10 +53,21 @@ const Checkers = (props) => {
                 <Modal show={showModal}>
                 <div className="PopUp" display="block">
                     <div className="PopUp.internal">
-                    <span onClick={rulesClose}>&times;</span>
+                    <span cursor = "pointer" onClick={rulesClose}>&times;</span>
                     <p>Hello! Welcome to checkers!</p>
                     <h5>BASIC RULES</h5>
-                    <h5>HOW THE AI THINKS</h5>
+                    <p>
+                      The opponent with the darker pieces moves first. Pieces can only move one diagonal space
+                       forward (towards the opponent's side) in the beginning of the game. This means pieces must stay on the dark squares.
+                       To capture an opposing piece, "jump" over it by moving to an empty space two diagonal spaces in the direction of the opposing piece.
+                       If your piece reaches the last row on your opponent's side, you may "crown" that piece making it a king piece.
+                       King pieces can move one diagonal space forward or backwards.
+                    </p>
+                    <h5>HOW TO PLAY A GAME</h5>
+                    <p>
+                      If you see a "Join Game" button that means some one is waiting to play so feel free to join their game.
+                      Otherwise press the "Create New Game" button and wait for someone to join. Enjoy!
+                    </p>
                     </div>
                 </div>
                 </Modal>
