@@ -34,15 +34,6 @@ it('states you are playing checkers', () => {
     expect(titleText.textContent).toBe('Checkers');
 });
 
-it('contains a reset button', () => {
-    act(() => {
-        ReactDOM.render(<Checkers/>, container);
-    });
-
-    const resetButtonText = container.querySelectorAll('button');
-    expect(resetButtonText[64].textContent).toBe('Reset');
-});
-
 it('contains a rules button', () => {
     act(() => {
         ReactDOM.render(<Checkers/>, container);
