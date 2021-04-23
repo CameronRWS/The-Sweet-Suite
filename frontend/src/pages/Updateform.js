@@ -22,6 +22,8 @@ function UpdateForm(props) {
     password: "",
     email: "",
     display_name: "",
+    total_score: 0,
+    spendable_score: 0,
     id: "",
   });
   const [isloaded, setIsLoaded] = useState(false);
@@ -43,7 +45,9 @@ function UpdateForm(props) {
             username: data.username,
             email: data.email,
             display_name: data.display_name,
-            id: data.id
+            id: data.id,
+            total_score: data.total_score,
+            spendable_score: data.spendable_score,
           });
 
           setUsername(data.username);
@@ -144,8 +148,8 @@ function UpdateForm(props) {
         password: password,
         email: email,
         display_name: displayname,
-        total_score: data.total_score,
-        spendable_score: data.spendable_score,
+        total_score: initialData.total_score,
+        spendable_score: initialData.spendable_score
       };
       const url = "http://localhost:8080/api/players/" + initialData.id
       fetch(url, {
@@ -170,7 +174,7 @@ function UpdateForm(props) {
   };
 
   const checkUser = (status) => {
-    if (status == 500) {
+    if (status === 500) {
       setData({ usernameError: "Error. Please try again." });
     } else {
       setData({ toLogin: true });
@@ -195,7 +199,7 @@ function UpdateForm(props) {
 
   return (
 
-    <div>
+    <div className="customCenter">
       {data.toLogin && <Redirect to='/gamesuite'></Redirect>}
     <h3>Update profile Information</h3>
       <form onSubmit={handleSubmit}>
@@ -239,7 +243,7 @@ function UpdateForm(props) {
         <div style={{ color: "red" }}>{data.passwordError}</div>
         <div style={{ color: "red" }}>{data.emailError}</div>
         <div style={{ color: "red" }}>{data.displayError}</div>
-        <button className="login-bttn" type="submit" onClick={handleSignup}>
+        <button className="update-bttn" type="submit" onClick={handleSignup}>
           Update
         </button>
       </form>

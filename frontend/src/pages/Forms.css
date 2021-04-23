@@ -1,0 +1,31 @@
+.update-bttn,
+.back-bttn,
+.logout-bttn,
+.signup-bttn {
+    padding: 13px;
+    border: none;
+    border-radius: 11px;
+    color: #FF7034;
+    background-color: antiquewhite;
+    width: auto;
+    font-weight: 600;
+    font-family: Arial;
+    font-size: 15px;
+    letter-spacing: 1px;
+    transition-duration: .3s;
+    outline: none;
+}
+
+.update-bttn,
+.back-bttn,
+.logout-bttn,
+.signup-bttn:hover {
+    background-color: #fcb989;
+    color: #FF7034;
+}
+
+.customCenter {
+    margin: auto;
+    width: 18%;
+    padding: 10px;
+}

@@ -28,5 +28,5 @@ it('states your login credentials', () => {
   });
 
   const resetButtonText = container.querySelector('div');
-  expect(resetButtonText.textContent).toBe('User NamePasswordLogin');
+  expect(resetButtonText.textContent).toContain('Login');
 });

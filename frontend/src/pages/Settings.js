@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link, Redirect, useHistory } from "react-router-dom";
 import './GameSuite.css';
+import './Forms.css';
 import UpdateForm from './Updateform';
 import sampleProfPic1 from './images/sample-prof-pic1.png';
 import GameBot from './images/Default.png';
@@ -35,12 +36,16 @@ const Settings = (props) => {
                     <a className = "backText" onClick = {loadHome}>Back</a>
                     <div className = "GameSuiteHeader">
                         <p className="settingsText">Settings</p>
+                        <button className="login-bttn" onClick={loadLogin}>Logout</button>
                     </div>
                     
                     <div style={{"text-align": "center"}}> 
                         <img src={props.pic} width="150" height="150" onClick={loadStore}></img>
+                    </div>
+                    
+                    <div>
                         <UpdateForm auth={props.auth}></UpdateForm>
-                        <button className="login-bttn" onClick={loadLogin}>Logout</button>
+                        
                     </div>
                 </div>
                 
