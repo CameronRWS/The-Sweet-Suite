@@ -37,7 +37,7 @@ const Store = (props) => {
                     <a className = "Settings" onClick = {loadSettings}>Settings</a>
                     <div className = "GameSuiteHeader">
                         <p className="gameSuiteText">{"The Sweet Suite Store!"}</p>
-                        <p className="gameSuiteText2">These are the games currently available to you</p>
+                        <p className="gameSuiteText2">These are the avatars available to you</p>
                     </div>
                 </div>
             ):(

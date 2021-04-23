@@ -52,11 +52,11 @@ const Login = (props) => {
             if (data.isSuccessful){
                 let path = '/gamesuite';
                 history.push(path);
-                props.authFunc(true, userId);
+                // props.authFunc(true, userId);
             }
             else {
                 setDisplayError("username or password not recognized");
-                props.authFunc(false, "");
+                // props.authFunc(false, "");
             }
         })
     };
