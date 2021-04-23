@@ -29,6 +29,10 @@ const Store = (props) => {
         history.push(path);
     };
 
+    const makeProfile = () => {
+
+    };
+
     return (
         <>
             {props.authVar ? (
@@ -38,6 +42,15 @@ const Store = (props) => {
                     <div className = "GameSuiteHeader">
                         <p className="gameSuiteText">{"The Sweet Suite Store!"}</p>
                         <p className="gameSuiteText2">These are the avatars available to you</p>
+                    </div>
+                    <div className = "Images">
+                        <img src = {GameBot} alt = "game bot" width = "200" height = "200" onClick = {makeProfile}></img>
+                        <img src = {GameBot} alt = "game bot" width = "200" height = "200" onClick = {makeProfile}></img>
+                        <img src = {GameBot} alt = "game bot" width = "200" height = "200" onClick = {makeProfile}></img>
+                        <img src = {GameBot} alt = "game bot" width = "200" height = "200" onClick = {makeProfile}></img>
+                        <img src = {GameBot} alt = "game bot" width = "200" height = "200" onClick = {makeProfile}></img>
+
+                        
                     </div>
                 </div>
             ):(

@@ -138,4 +138,11 @@
     border: none;
     outline: none;
   }
+
+  .Images{
+    justify-content: center;
+    display: grid;
+    grid-column-gap: 50px;
+    grid-template-columns: 200px 200px 200px;
+  }
   
