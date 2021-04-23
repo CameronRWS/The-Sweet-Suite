@@ -2,7 +2,11 @@ import React, { useState } from "react";
 import { Link, Redirect, useHistory } from "react-router-dom";
 import './Store.css';
 import sampleProfPic1 from './images/sample-prof-pic1.png';
-import GameBot from './images/GameBot.png';
+import GameBot from './images/Default.png';
+import Cactus from './images/Cactus.png';
+import Dog from './images/Dog.png';
+import Mushroom from './images/Mushroom.png';
+import Worms from './images/Worms.png';
 
 const Store = (props) => {
     const history = useHistory();
@@ -45,12 +49,10 @@ const Store = (props) => {
                     </div>
                     <div className = "Images">
                         <img src = {GameBot} alt = "game bot" width = "200" height = "200" onClick = {makeProfile}></img>
-                        <img src = {GameBot} alt = "game bot" width = "200" height = "200" onClick = {makeProfile}></img>
-                        <img src = {GameBot} alt = "game bot" width = "200" height = "200" onClick = {makeProfile}></img>
-                        <img src = {GameBot} alt = "game bot" width = "200" height = "200" onClick = {makeProfile}></img>
-                        <img src = {GameBot} alt = "game bot" width = "200" height = "200" onClick = {makeProfile}></img>
-
-                        
+                        <img src = {Cactus} alt = "game bot" width = "200" height = "200" onClick = {makeProfile}></img>
+                        <img src = {Dog} alt = "game bot" width = "200" height = "200" onClick = {makeProfile}></img>
+                        <img src = {Mushroom} alt = "game bot" width = "200" height = "200" onClick = {makeProfile}></img>
+                        <img src = {Worms} alt = "game bot" width = "200" height = "200" onClick = {makeProfile}></img>
                     </div>
                 </div>
             ):(

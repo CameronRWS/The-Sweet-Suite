@@ -3,7 +3,7 @@ import { Link, Redirect, useHistory } from "react-router-dom";
 import './GameSuite.css';
 import checkers from './images/Checkers.jpg';
 import sampleProfPic1 from './images/sample-prof-pic1.png';
-import GameBot from './images/GameBot.png';
+import GameBot from './images/Default.png';
 
 const GameSuite = (props) => {
     const history = useHistory();
