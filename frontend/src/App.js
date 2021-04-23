@@ -6,16 +6,23 @@ import Checkers from "./pages/Checkers";
 import Signup from "./pages/Signup";
 import Settings from "./pages/Settings";
 import Store from "./pages/Store";
+import GameBot from "./pages/images/Default.png";
+import Egg from "./pages/images/Egg.png";
 
 function App() {
   const [authorized, setAuthorized] = useState(true);
   const [username, setUsername] = useState("");
+  const [profilePic, setProfilePic] = useState(GameBot);
   
 
   const authorize = (bool, user) => {
     setAuthorized(bool);
     setUsername(user);
   };
+
+  const changeProfPic = (pic) => {
+    setProfilePic(pic);
+  }
 
 
   return (
@@ -26,7 +33,7 @@ function App() {
             <Login authFunc={authorize}></Login>
           </Route>
           <Route path="/gamesuite">
-            <GameSuite authVar={authorized} user={username}></GameSuite>
+            <GameSuite pic={profilePic} setPic={changeProfPic} authVar={authorized} user={username}></GameSuite>
           </Route>
           <Route path="/checkers">
             <Checkers authVar={authorized}></Checkers>
@@ -35,10 +42,10 @@ function App() {
             <Signup></Signup>
           </Route>
           <Route path="/settings">
-            <Settings auth={username} authVar={authorized}></Settings>
+            <Settings pic={profilePic} setPic={changeProfPic} auth={username} authVar={authorized}></Settings>
           </Route>
           <Route path="/store">
-            <Store user={username} authVar={authorized}></Store>
+            <Store pic={profilePic} setPic={changeProfPic} user={username} authVar={authorized}></Store>
           </Route>
         </Switch>
       </BrowserRouter>

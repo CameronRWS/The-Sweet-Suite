@@ -38,9 +38,7 @@ const Settings = (props) => {
                     </div>
                     
                     <div style={{"text-align": "center"}}> 
-                        <button className="settingsPicButton" onClick={loadStore}>
-                            <img src={GameBot} width="150" height="150"></img>
-                        </button>
+                        <img src={props.pic} width="150" height="150" onClick={loadStore}></img>
                         <UpdateForm auth={props.auth}></UpdateForm>
                         <button className="login-bttn" onClick={loadLogin}>Logout</button>
                     </div>

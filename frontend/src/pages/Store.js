@@ -34,8 +34,26 @@ const Store = (props) => {
         history.push(path);
     };
 
-    const makeProfile = () => {
-
+    const makeProfile = (event) => {
+        let target = event.target;
+        if (target.alt === "mushroom"){
+            props.setPic(Mushroom);
+        }
+        else if (target.alt === "egg"){
+            props.setPic(Egg); 
+        }
+        else if (target.alt === "worms"){
+            props.setPic(Worms); 
+        }
+        else if (target.alt === "dog"){
+            props.setPic(Dog); 
+        }
+        else if (target.alt === "cactus"){
+            props.setPic(Cactus); 
+        }
+        else{
+            props.setPic(GameBot);
+        }
     };
 
     return (
