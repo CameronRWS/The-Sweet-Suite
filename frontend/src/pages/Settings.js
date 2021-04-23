@@ -1,10 +1,8 @@
 import React, { useState } from "react";
-import { Link, Redirect, useHistory } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link, Redirect, useHistory } from "react-router-dom";
 import './GameSuite.css';
 import './Forms.css';
 import UpdateForm from './Updateform';
-import sampleProfPic1 from './images/sample-prof-pic1.png';
-import GameBot from './images/Default.png';
 import './Login.css'
 
 // code list of props here, find out how to specify props at bottom
@@ -50,7 +48,10 @@ const Settings = (props) => {
                 </div>
                 
             ):(
-                <Redirect to="/"></Redirect>
+                <Router>
+                    <Redirect to="/"></Redirect>
+                </Router>
+                
             )}
         </>
     )

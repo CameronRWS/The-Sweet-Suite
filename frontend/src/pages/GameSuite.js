@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, Redirect, useHistory } from "react-router-dom";
+import { BrowserRouter as Router, Link, Redirect, useHistory } from "react-router-dom";
 import './GameSuite.css';
 import checkers from './images/Checkers.jpg';
 import sampleProfPic1 from './images/sample-prof-pic1.png';
@@ -74,7 +74,9 @@ const GameSuite = (props) => {
                 </div>
                 </div>
             ):(
-                <Redirect to="/"></Redirect>
+                <Router>
+                   <Redirect to="/"></Redirect> 
+                </Router>
             )}
             
         </>

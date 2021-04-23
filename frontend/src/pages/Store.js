@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, Redirect, useHistory } from "react-router-dom";
+import { BrowserRouter as Router, Link, Redirect, useHistory } from "react-router-dom";
 import './Store.css';
 import sampleProfPic1 from './images/sample-prof-pic1.png';
 import GameBot from './images/Default.png';
@@ -99,7 +99,9 @@ const Store = (props) => {
                     </div>
                 </div>
             ):(
-                <Redirect to="/"></Redirect>
+                <Router>
+                    <Redirect to="/"></Redirect>
+                </Router>
             )}
             
         </>

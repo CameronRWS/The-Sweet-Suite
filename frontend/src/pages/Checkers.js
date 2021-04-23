@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, Redirect, useHistory } from "react-router-dom";
+import { BrowserRouter as Router, Link, Redirect, useHistory } from "react-router-dom";
 import './GameSuite.css';
 import App from "./games/checkers/ReactCheckers";
 import Modal from "../Modal";
@@ -64,7 +64,9 @@ const Checkers = (props) => {
                 </Modal>
             </div>
             ):(
-              <Redirect to="/"></Redirect>
+              <Router>
+                <Redirect to="/"></Redirect>
+              </Router>  
           )}
           </>
         )

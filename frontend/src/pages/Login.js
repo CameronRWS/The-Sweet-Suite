@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import { useHistory, BrowserRouter, Link } from 'react-router-dom';
+import { BrowserRouter as Router, useHistory, Link } from 'react-router-dom';
 import './Settings.css'
 import backdrop2 from './images/backdrop2.jpg';
 import GameBot from './images/GameBot.png';
@@ -80,7 +80,9 @@ const Login = (props) => {
                 </form>
                 <div className="signup-div">
                     <p className="signup-text">Don't have an account?</p>
-                    <Link className="signup-link" to="/signup">Sign Up!</Link>
+                    <Router>
+                        <Link className="signup-link" to="/signup">Sign Up!</Link>
+                    </Router>
                 </div>
             </div>
         </div>
