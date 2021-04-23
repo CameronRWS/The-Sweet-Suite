@@ -42,3 +42,12 @@
     height: 10px;
     padding: 5px;
   }
+
+  .settingsPicButton{
+     padding: 0px;
+    width: 150px;
+    height: 150px;
+    background-color: Transparent;
+    border: none;
+    outline: none;
+  }

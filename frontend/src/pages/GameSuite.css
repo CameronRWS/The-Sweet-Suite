@@ -112,5 +112,14 @@
 
 .picDiv{
   position:absolute;
-  top: 5%;
+  top: 4%;
+}
+
+.picButton{
+  padding: 0px;
+  width: 100px;
+  height: 100px;
+  background-color: Transparent;
+  border: none;
+  outline: none;
 }

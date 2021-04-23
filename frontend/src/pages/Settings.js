@@ -16,12 +16,17 @@ const Settings = (props) => {
     const loadHome = () => {
         let path = "/gamesuite";
         history.push(path);
-    }
+    };
 
     const loadLogin = () => {
         let path = "/"
         history.push(path);
     };
+
+    const loadStore = () => {
+        let path = "/store";
+        history.push(path);
+    }
 
     return (
         <>
@@ -33,7 +38,9 @@ const Settings = (props) => {
                     </div>
                     
                     <div style={{"text-align": "center"}}> 
-                        <img  src={GameBot} width="150" height="150"></img>
+                        <button className="settingsPicButton" onClick={loadStore}>
+                            <img src={GameBot} width="150" height="150"></img>
+                        </button>
                         <UpdateForm auth={props.auth}></UpdateForm>
                         <button className="login-bttn" onClick={loadLogin}>Logout</button>
                     </div>

@@ -5,6 +5,7 @@ import GameSuite from "./pages/GameSuite";
 import Checkers from "./pages/Checkers";
 import Signup from "./pages/Signup";
 import Settings from "./pages/Settings";
+import Store from "./pages/Store";
 
 function App() {
   const [authorized, setAuthorized] = useState(true);
@@ -35,7 +36,10 @@ function App() {
           </Route>
           <Route path="/settings">
             <Settings auth={username} authVar={authorized}></Settings>
-            </Route>
+          </Route>
+          <Route path="/store">
+            <Store user={username} authVar={authorized}></Store>
+          </Route>
         </Switch>
       </BrowserRouter>
     </div>

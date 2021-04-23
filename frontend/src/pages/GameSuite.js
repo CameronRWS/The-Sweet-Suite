@@ -20,6 +20,11 @@ const GameSuite = (props) => {
         history.push(path);
     };
     
+    const loadStore = () => {
+        let path = "/store";
+        history.push(path);
+    };
+
     return (
         <>
             {props.authVar ? (
@@ -27,9 +32,10 @@ const GameSuite = (props) => {
                     <a className = "Settings" onClick = {loadSettings}>Settings</a>
                 <div className = "GameSuiteHeader">
                     <div className="picDiv">
-                        <img className="profPic" src={GameBot} width="100" height="100"></img>
+                        <button className="picButton" onClick={loadStore}>
+                            <img className="profPic" src={GameBot} width="100" height="100"></img>
+                        </button>
                     </div>
-                    
                     <p className="gameSuiteText">{"Welcome to The Sweet Suite " + props.user + "!"}</p>
                     <p className="gameSuiteText2">These are the games currently available to you</p>
                 </div>
