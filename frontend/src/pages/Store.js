@@ -7,6 +7,7 @@ import Cactus from './images/Cactus.png';
 import Dog from './images/Dog.png';
 import Mushroom from './images/Mushroom.png';
 import Worms from './images/Worms.png';
+import Egg from './images/Egg.png';
 
 const Store = (props) => {
     const history = useHistory();
@@ -49,10 +50,11 @@ const Store = (props) => {
                     </div>
                     <div className = "Images">
                         <img src = {GameBot} alt = "game bot" width = "200" height = "200" onClick = {makeProfile}></img>
-                        <img src = {Cactus} alt = "game bot" width = "200" height = "200" onClick = {makeProfile}></img>
-                        <img src = {Dog} alt = "game bot" width = "200" height = "200" onClick = {makeProfile}></img>
-                        <img src = {Mushroom} alt = "game bot" width = "200" height = "200" onClick = {makeProfile}></img>
-                        <img src = {Worms} alt = "game bot" width = "200" height = "200" onClick = {makeProfile}></img>
+                        <img src = {Cactus} alt = "cactus" width = "200" height = "200" onClick = {makeProfile}></img>
+                        <img src = {Dog} alt = "dog" width = "200" height = "200" onClick = {makeProfile}></img>
+                        <img src = {Mushroom} alt = "mushroom" width = "200" height = "200" onClick = {makeProfile}></img>
+                        <img src = {Worms} alt = "worms" width = "200" height = "200" onClick = {makeProfile}></img>
+                        <img src = {Egg} alt = "egg" width = "200" height = "200" onClick = {makeProfile}></img>
                     </div>
                 </div>
             ):(
