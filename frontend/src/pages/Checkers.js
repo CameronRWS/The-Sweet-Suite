@@ -14,10 +14,6 @@ const Checkers = (props) => {
         history.push(path);
     };
 
-    const resetClick = () => {
-      console.log("reset");
-    };
-
     const rulesClick = (event) => {
       setShowModal(true);
     };
@@ -30,9 +26,7 @@ const Checkers = (props) => {
         <>
             {props.authVar ? (
               <div>
-              <a onClick={loadHome} className="BackButton">
-                &laquo; Back
-              </a>
+              <a onClick={loadHome} className="BackButton"> Back </a>
               <div className="GameSuiteHeader">
                 <p>Checkers</p>
               </div>
@@ -43,9 +37,6 @@ const Checkers = (props) => {
               </div>
 
               <div className="Clear">
-                <button class='reset' onClick={resetClick} className="Gamebutton">
-                  Reset
-                </button>
                 <button onClick={rulesClick} className="Gamebutton" id="rules">
                   Rules
                 </button>
@@ -57,8 +48,8 @@ const Checkers = (props) => {
                     <p>Hello! Welcome to checkers!</p>
                     <h5>BASIC RULES</h5>
                     <p>
-                      The opponent with the darker pieces moves first. Pieces can only move one diagonal space
-                       forward (towards the opponent's side) in the beginning of the game. This means pieces must stay on the dark squares.
+                      Pieces can only move one diagonal space
+                       forward (towards the opponent's side) in the beginning of the game. This means pieces must stay on the white squares.
                        To capture an opposing piece, "jump" over it by moving to an empty space two diagonal spaces in the direction of the opposing piece.
                        If your piece reaches the last row on your opponent's side, you may "crown" that piece making it a king piece.
                        King pieces can move one diagonal space forward or backwards.
