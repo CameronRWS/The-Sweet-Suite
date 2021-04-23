@@ -33,6 +33,7 @@ label{
     letter-spacing: 1px;
     transition-duration: .3s;
     outline: none;
+    margin: 10px 0;
 }
 
 .login-bttn:hover{
@@ -156,6 +157,6 @@ label{
 .signup-div{
     text-align: center;
     position: relative;
-    margin: 90px 0;
+    margin: 20px 0;
 };
 

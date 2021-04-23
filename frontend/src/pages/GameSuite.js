@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { Link, Redirect, useHistory } from "react-router-dom";
 import './GameSuite.css';
 import checkers from './images/Checkers.jpg';
+import sampleProfPic1 from './images/sample-prof-pic1.png';
+import GameBot from './images/Default.png';
 import chess from './images/chess.png';
 import mancala from './images/mancala.jpg';
 
@@ -28,14 +30,22 @@ const GameSuite = (props) => {
         history.push(path);
     };
     
+    const loadStore = () => {
+        let path = "/store";
+        history.push(path);
+    };
+
     return (
         <>
             {props.authVar ? (
                 <div>
                     <a className = "Settings" onClick = {loadSettings}>Settings</a>
                 <div className = "GameSuiteHeader">
-                    <p>{"Welcome to The Sweet Suite " + props.user + "!"}</p>
-                    <p>These are the games currently available to you</p>
+                    <div className="picDiv">
+                        <img className="profPic" src={props.pic} width="100" height="100" onClick={loadStore}></img>
+                    </div>
+                    <p className="gameSuiteText">{"Welcome to The Sweet Suite " + props.user + "!"}</p>
+                    <p className="gameSuiteText2">These are the games currently available to you</p>
                 </div>
                 <div>
                     <div>
