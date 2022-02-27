@@ -1,4 +1,4 @@
-**THE SWEET SUITE**
+***THE SWEET SUITE***
 
 This repository is home to The Sweet Suite: a react based game suite where users
 can play simple games with AIs and friends and earn points while doing so.
